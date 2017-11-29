@@ -11,7 +11,6 @@ exports.event_list=(req,res)=>{
     })
   }
 };
-
 exports.event_view=(req,res)=>{
   const event_id=req.params.id;
   if(req.user.User_isAdmin===0){
@@ -23,8 +22,6 @@ exports.event_view=(req,res)=>{
     })
   }
 };
-
-
 exports.event_insert=(req,res)=>{
   const {Title,Link,Content}=req.body;
   if(req.user.User_isAdmin===0){
@@ -33,11 +30,10 @@ exports.event_insert=(req,res)=>{
     db.query('insert into event (Event_Title,Event_Link,Event_Content) values (?,?,?)',
       [Title, Link, Content], (err) => {
         if (err) console.log(err);
-        res.redirect('admin/event/event');       //수정
+        res.redirect('/admin/board/event');       //수정
       })
   }
 };
-
 exports.event_update=(req,res)=>{
   const event_id=req.params.id;
   const {Title,Link,Content}=req.body;
@@ -47,7 +43,7 @@ exports.event_update=(req,res)=>{
     db.query('update event set Event_Title=? , Event_Link=?, Event_Content=? where Event_ID=?',
       [Title, Link, Content, event_id], (err) => {
         if (err) console.log(err);
-        res.redirect('admin/event/event');
+        res.redirect('admin/board/event');
       })
   }
 };

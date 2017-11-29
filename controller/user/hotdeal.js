@@ -8,7 +8,6 @@ exports.hotdeal_list=(req,res)=>{
     res.render('user/hotdeal/hotdeal',{hotdeal:results});
   })
 };
-
 exports.hotdeal_view=(req,res)=>{
   const hotdeal_id=req.params.id;
   let hotdeal,hotdeal_comment;
@@ -23,7 +22,6 @@ exports.hotdeal_view=(req,res)=>{
 
   })
 };
-
 exports.hotdeal_up=(req,res)=>{
   const hotdeal_id=req.params.id;
   const hotdeal=1;
@@ -42,7 +40,6 @@ exports.hotdeal_up=(req,res)=>{
       }
     });
 };
-
 exports.hotdeal_down=(req,res)=>{
   const hotdeal_id=req.params.id;
   const hotdeal=1;
@@ -61,7 +58,6 @@ exports.hotdeal_down=(req,res)=>{
       }
     });
 };
-
 exports.hotdeal_grade=(req,res)=>{
   const hotdeal_id = req.params.id;
   const user_id=req.user.User_ID;
@@ -73,6 +69,7 @@ exports.hotdeal_grade=(req,res)=>{
       res.render('user/hotdeal/hotdeal'+hotdeal_id);
     });
 };
+
 // 댓글입력
 exports.hotdeal_comment=(req,res)=>{
   const hotdeal_id =req.body.hotdeal_id;
@@ -84,6 +81,7 @@ exports.hotdeal_comment=(req,res)=>{
       res.redirect('/hotdeal/'+hotdeal_id);
     })
 };
+
 exports.hotdeal_comment_delete=(req,res)=>{
   const hotdeal_id = req.params.id;
   const comment_id = req.params.comment_id;

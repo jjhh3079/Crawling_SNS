@@ -1,8 +1,8 @@
 const cwd=process.cwd();
 const express = require('express');
 const router = express.Router();
-const controller=require(cwd+'/controller/admin/report');
 const passport = require(cwd+'/config/passport');
+const controller = require(cwd+'/controller/user/main');
 
-router.get('/',passport.authenticate('jwt',{session:false}),controller.report_list);
+router.get('/',passport.authenticate('jwt',{session:false}),controller.main);
 module.exports = router;

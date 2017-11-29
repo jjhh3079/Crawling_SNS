@@ -17,14 +17,6 @@ exports.qna_form=(req,res)=>{
   }
 };
 
-exports.notice_write=(req,res)=>{
-  if(req.user.User_isAdmin===0){
-    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
-  }else {
-    console.log('1111111');
-    res.render('admin/contact/noticewrite');
-}
-};
 //////위에 수정 부분
 exports.notice_list=(req,res)=>{
   if(req.user.User_isAdmin===0){
@@ -36,7 +28,17 @@ exports.notice_list=(req,res)=>{
     })
   }
 };
-
+exports.notice_view=(req,res)=>{
+  const notice_id=req.params.id;
+  if(req.user.User_isAdmin===0){
+    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+  }else {
+    db.query('select * from notice where Notice_ID=?',[notice_id],(err,results)=>{
+      if(err) console.log(err);
+      res.render('admin/contact/notice',{notice:results});
+    })
+  }
+};
 exports.notice_insert=(req,res)=>{
   const {notice_title,notice_content}=req.body;
   if(req.user.User_isAdmin===0){
@@ -82,7 +84,6 @@ exports.qna_list=(req,res)=>{
     })
   }
 };
-
 exports.qna_view=(req,res)=>{
     const qna_id=req.params.id;
     if(req.user.User_isAdmin===0){
@@ -94,8 +95,6 @@ exports.qna_view=(req,res)=>{
         })
     }
 };
-
-// Qna_ID`, `Qna_Title`, `Qna_Content`, `Qna_Date`
 exports.qna_insert=(req,res)=>{
   const {qna_title,qna_content}=req.body;
   if(req.user.User_isAdmin===0){
@@ -107,7 +106,6 @@ exports.qna_insert=(req,res)=>{
     })
   }
 };
-
 exports.qna_update=(req,res)=>{
   const {qna_id,qna_title,qna_content}=req.body;
   if(req.user.User_isAdmin===0){
@@ -119,7 +117,6 @@ exports.qna_update=(req,res)=>{
     })
   }
 };
-
 exports.qna_delete=(req,res)=>{
   const {qna_id}=req.body;
   if(req.user.User_isAdmin===0){
@@ -142,7 +139,6 @@ exports.question_list=(req,res)=>{
     })
   }
 };
-
 exports.question_answer_insert=(req,res)=>{
   const question_id=req.params.id;
   const {question_title,question_content}=req.body;

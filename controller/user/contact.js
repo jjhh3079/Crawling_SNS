@@ -40,7 +40,6 @@ exports.question_view=(req,res)=>{
     res.render('user/contact/question_view',{question:results});
   })
 };
-
 exports.question_write=(req,res)=>{
     const {question_id,user_id}=req.body;
     db.query('select * from question where Question_ID=? and User_ID=?',[question_id,user_id],(err,results)=>{

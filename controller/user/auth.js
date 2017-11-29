@@ -13,7 +13,7 @@ exports.signin=(req,res)=>{
   //TODO : 패스워드 중복검사
   //이메일 패스워드 이름을 받는다
   const {email,password,password_verify,name}= req.body;
-  if(password!==password_verify) res.render('main',{message:"패스워드 중복"});
+  if(password!==password_verify) return res.render('main',{message:"패스워드 중복"});
   //중복된 이메일 검사
   db.query('select count(*) as checkuser from user where User_Email=?',[email],(err,result)=>{
     if(err) console.log(err);
@@ -64,7 +64,7 @@ exports.login=(req,res)=>{
           if(user.User_isAdmin===1){
             res.render('admin/overview');
           }else{
-            res.render('user/overview/overview');
+            res.redirect('/main')
             // res.render('admin/overview');
           }
         }else{
@@ -88,7 +88,7 @@ exports.email_verify=(req,res)=>{
       console.log(err);
       res.render('main',{message:"잘못되거나 만료된 토큰입니다"});
     } else {
-      db.query('select * from user where user_email=?',[decoded.email],(err,result)=>{
+      db.query('select * from user where User_Email=?',[decoded.email],(err,result)=>{
         if(err) console.log(err);
         if(result[0]){
           db.query('update user set User_Email_Verify=1 where User_Email=?',[decoded.email],(err,results)=>{
@@ -120,6 +120,26 @@ exports.find_pw=(req,res)=>{
     }
   })
 };
+
+exports.new_pw_page=(req,res)=> {
+  //TODO : 토큰을 get으로 받아서 렌더링 할때 넣어주기 없으면 오류
+  let token = null;
+  if (req.cookies.jwt) {
+    token = req.cookies.jwt;
+  } else {
+    token = req.query.token;
+  }
+  jwt.verify(token, config.secret, (err) => {
+    if (err) {
+      console.log(err);
+      res.render('main', {message: "유효하지 않은 토큰입니다."})
+    } else {
+      res.render('new_pw', {token: token});
+    }
+  });
+};
+
+
 //새비밀번호 찾기 & 비밀번호 변경
 exports.new_pw=(req,res)=>{
   const {password,token} =req.body;

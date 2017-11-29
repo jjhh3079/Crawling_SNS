@@ -26,23 +26,7 @@ router.get('/find_pw',(req,res)=>{
   res.render('find_pw');
 });
 //새 비밀번호 찾기페이지
-router.get('/new_pw',(req,res)=>{
-  //TODO : 토큰을 get으로 받아서 렌더링 할때 넣어주기 없으면 오류
-  let token =null;
-  if(req.cookies.jwt){
-    token = req.cookies.jwt;
-  }else{
-    token = req.query.token;
-  }
-  jwt.verify(token,config.secret,(err)=>{
-    if(err){
-      console.log(err);
-      res.render('main',{message:"유효하지 않은 토큰입니다."})
-    }else{
-      res.render('new_pw', {token : token});
-    }
-  });
-});
+router.get('/new_pw',controller.new_pw_page);
 
 router.get('/settings',(req,res)=>{
   res.render('user/settings/settings');
