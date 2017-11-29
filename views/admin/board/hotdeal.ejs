@@ -191,11 +191,12 @@
                                 <td>
                                     <%= item.Hotdeal_Date %>
                                 </td>
-                                <td><form method="post"><input type="hidden" name="id" value="<%= item.Hotdeal_ID %>"><input type="submit" value="삭제"></form></td>
+                                <td><form method="post" action="/admin/board/hotdeal/delete/<%= item.Hotdeal_ID %>"><input type="hidden" name="id" value="<%= item.Hotdeal_ID %>"><input type="submit" value="삭제"></form></td>
                             </tr>
                             <%})%>
                             </tbody>
                         </table>
+                        <a href="/admin/board/hotdeal/insert" class="btn btn-board btn-theme03">핫딜 작성하기</a>
                     </div>
                 </div>
             </div>

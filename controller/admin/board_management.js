@@ -18,7 +18,7 @@ exports.event_view=(req,res)=>{
   }else {
     db.query('select * from event where Event_ID=?',[event_id] ,(err, results) => {
       if (err) console.log(err);
-      res.render('admin/board/event_view', {event: results});        //수정
+      res.render('admin/board/event_view', {event: results});
     })
   }
 };
@@ -31,12 +31,12 @@ exports.event_insert_form=(req,res)=>{
   }
 };
 exports.event_insert=(req,res)=>{
-  const {Title,Link,Content}=req.body;
+  const {event_Title,event_Link,event_Content}=req.body;
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
     db.query('insert into event (Event_Title,Event_Link,Event_Content) values (?,?,?)',
-      [Title, Link, Content], (err) => {
+      [event_Title,event_Link,event_Content], (err) => {
         if (err) console.log(err);
         res.redirect('/admin/board/event');       //수정
       })
@@ -49,7 +49,7 @@ exports.event_delete=(req,res)=>{
   }else {
     db.query('delete from event where Event_ID=?', [event_id], (err) => {
       if (err) console.log(err);
-      res.redirect('admin/board/event');
+      res.redirect('/admin/board/event');
     })
   }
 };
@@ -84,14 +84,14 @@ exports.hotdeal_insert_form=(req,res)=>{
   }
 };
 exports.hotdeal_insert=(req,res)=>{
-  const {Title,Link,Content}=req.body;
+  const {hotdeal_Title,hotdeal_Link,hotdeal_Content}=req.body;
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
     db.query('insert into hotdeal (Hotdeal_Title,Hotdeal_Link,Hotdeal_Content) values (?,?,?)',
-      [Title, Link, Content], (err) => {
+      [hotdeal_Title,hotdeal_Link,hotdeal_Content], (err) => {
         if (err) console.log(err);
-        res.redirect('admin/board/hotdeal');           //수정
+        res.redirect('/admin/board/hotdeal');           //수정
       })
   }
 };
@@ -102,7 +102,7 @@ exports.hotdeal_delete=(req,res)=>{
   }else {
     db.query('delete from hotdeal where Hotdeal_ID=?', [hotdeal_id], (err) => {
       if (err) console.log(err);
-      res.redirect('admin/board/hotdeal');         //수정
+      res.redirect('/admin/board/hotdeal');         //수정
     })
   }
 };

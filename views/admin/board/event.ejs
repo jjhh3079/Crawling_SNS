@@ -218,28 +218,34 @@
                                 <th>추천 수</th>
                                 <th>제목</th>
                                 <th>등록일</th>
+                                <th>삭제</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
                             <% console.log(event) %>
                             <% event.forEach((item)=>{ %>
-                            <tr class='clickable-row' data-href="/event/<%= item.Event_ID %>">
+                            <tr>
                                 <td class="updown">
                                     <p><a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a></p>
                                     <%= item.Event_Score %>
                                     <p><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a></p>
                                 </td>
-                                <td valgin='bottom'>
+                                <td valgin='bottom' class='clickable-row' data-href="/admin/board/event/?<%= item.Event_ID %>">              <!--수정할 수 있는 폼이 있어야 하나 -->
                                     <%= item.Event_Title %>
                                 </td>
                                 <td>
                                     <%= item.Event_Date %>
                                 </td>
+                                <td>
+                                    <form method="post" action="/admin/board/event/delete/<%= item.Event_ID %>"><input type="hidden" name="id" value="<%= item.Event_ID %>"><input type="submit" value="삭제"></form>
+                                </td>
                             </tr>
                             <%})%>
                             </tbody>
+                            
                         </table>
+                        <a href="/admin/board/event/insert" class="btn btn-board btn-theme03">이벤트 작성하기</a>
                     </div>
                 </div>
             </div>
