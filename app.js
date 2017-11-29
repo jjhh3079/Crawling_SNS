@@ -31,12 +31,16 @@ const admin_auth=require('./routes/admin/auth');
 const admin_board= require('./routes/admin/board_management');
 const admin_contact=require('./routes/admin/contact');
 const admin_main=require('./routes/admin/main');
+const admin_setting=require('./routes/admin/settings');
+const admin_report=require('./routes/admin/report');
 
 app.use('/admin/account',admin_account);
 app.use('/admin/board',admin_board);
 app.use('/admin/contact',admin_contact);
 app.use('/admin',admin_main);
 app.use('/admin',admin_auth);
+app.use('/admin/settings',admin_setting);
+app.use('/admin/account/report',admin_report);
 
 app.use('/',auth);
 app.use('/main',main);
