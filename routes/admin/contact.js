@@ -32,7 +32,7 @@ router.get('/notice/delete/:id',passport.authenticate('jwt',{session:false}),(re
 });
 // 공지사항 작성
 router.post('/notice/insert',passport.authenticate('jwt',{session:false}),controller.notice_insert);
-router.post('/notice/update/:id',passport.authenticate('jwt',{session:false}),controller.notice_update);
+
 
 router.post('/notice/delete/:id',passport.authenticate('jwt',{session:false}),controller.notice_delete);
 
@@ -43,9 +43,10 @@ router.post('/question/insert',passport.authenticate('jwt',{session:false}),cont
 router.get('/qna',passport.authenticate('jwt',{session:false}),controller.qna_list);
 router.get('/qna/:id',passport.authenticate('jwt',{session:false}),controller.qna_view);
 router.get('/qna/insert',passport.authenticate('jwt',{session:false}),controller.qna_insert);
-router.get('/qna/update/:id',passport.authenticate('jwt',{session:false}),controller.qna_update);
+
 router.get('/qna/delete/:id',passport.authenticate('jwt',{session:false}),controller.qna_delete);
 
 router.get('/qna_form',passport.authenticate('jwt',{session:false}),controller.qna_form);
-
+// router.get('/qna/update/:id',passport.authenticate('jwt',{session:false}),controller.qna_update);
+// router.post('/notice/update/:id',passport.authenticate('jwt',{session:false}),controller.notice_update);
 module.exports = router;
