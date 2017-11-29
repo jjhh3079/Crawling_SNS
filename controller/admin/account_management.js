@@ -11,7 +11,6 @@ exports.account_list=(req,res)=>{
     })
   }
 };
-
 exports.account_comment_list=(req,res)=>{
   const user_id=req.params.id;
   if(req.user.User_isAdmin===0){

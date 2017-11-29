@@ -22,6 +22,14 @@ exports.event_view=(req,res)=>{
     })
   }
 };
+
+exports.event_insert_form=(req,res)=>{
+  if(req.user.User_isAdmin===0){
+    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+  }else {
+    res.render('admin/board/event_insert_form');
+  }
+};
 exports.event_insert=(req,res)=>{
   const {Title,Link,Content}=req.body;
   if(req.user.User_isAdmin===0){
@@ -34,20 +42,6 @@ exports.event_insert=(req,res)=>{
       })
   }
 };
-exports.event_update=(req,res)=>{
-  const event_id=req.params.id;
-  const {Title,Link,Content}=req.body;
-  if(req.user.User_isAdmin===0){
-    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
-  }else {
-    db.query('update event set Event_Title=? , Event_Link=?, Event_Content=? where Event_ID=?',
-      [Title, Link, Content, event_id], (err) => {
-        if (err) console.log(err);
-        res.redirect('admin/board/event');
-      })
-  }
-};
-
 exports.event_delete=(req,res)=>{
   const event_id=req.params.id;
   if(req.user.User_isAdmin===0){
@@ -70,7 +64,6 @@ exports.hotdeal_list=(req,res)=>{
     })
   }
 };
-
 exports.hotdeal_view=(req,res)=>{
   const hotdeal_id=req.params.id;
   if(req.user.User_isAdmin===0){
@@ -83,7 +76,13 @@ exports.hotdeal_view=(req,res)=>{
   }
 };
 
-
+exports.hotdeal_insert_form=(req,res)=>{
+  if(req.user.User_isAdmin===0){
+    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+  }else {
+    res.render('admin/board/hotdeal_insert_form');
+  }
+};
 exports.hotdeal_insert=(req,res)=>{
   const {Title,Link,Content}=req.body;
   if(req.user.User_isAdmin===0){
@@ -91,19 +90,6 @@ exports.hotdeal_insert=(req,res)=>{
   }else {
     db.query('insert into hotdeal (Hotdeal_Title,Hotdeal_Link,Hotdeal_Content) values (?,?,?)',
       [Title, Link, Content], (err) => {
-        if (err) console.log(err);
-        res.redirect('admin/hotdeal/hotdeal');           //수정
-      })
-  }
-};
-exports.hotdeal_update=(req,res)=>{
-  const hotdeal_id=req.params.id;
-  const {Title,Link,Content}=req.body;
-  if(req.user.User_isAdmin===0){
-    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
-  }else {
-    db.query('update event set Hotdeal_Title=? , Hotdeal_Link=?, Hotdeal_Content=? where Hotdeal_ID=?',
-      [Title, Link, Content, hotdeal_id], (err) => {
         if (err) console.log(err);
         res.redirect('admin/hotdeal/hotdeal');           //수정
       })
@@ -120,3 +106,32 @@ exports.hotdeal_delete=(req,res)=>{
     })
   }
 };
+
+// exports.event_update=(req,res)=>{
+//   const event_id=req.params.id;
+//   const {Title,Link,Content}=req.body;
+//   if(req.user.User_isAdmin===0){
+//     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+//   }else {
+//     db.query('update event set Event_Title=? , Event_Link=?, Event_Content=? where Event_ID=?',
+//       [Title, Link, Content, event_id], (err) => {
+//         if (err) console.log(err);
+//         res.redirect('admin/board/event');
+//       })
+//   }
+// };
+
+// exports.hotdeal_update=(req,res)=>{
+//   const hotdeal_id=req.params.id;
+//   const {Title,Link,Content}=req.body;
+//   if(req.user.User_isAdmin===0){
+//     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+//   }else {
+//     db.query('update event set Hotdeal_Title=? , Hotdeal_Link=?, Hotdeal_Content=? where Hotdeal_ID=?',
+//       [Title, Link, Content, hotdeal_id], (err) => {
+//         if (err) console.log(err);
+//         res.redirect('admin/hotdeal/hotdeal');           //수정
+//       })
+//   }
+// };
+

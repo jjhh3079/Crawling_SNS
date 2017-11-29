@@ -4,8 +4,6 @@ const db = require(cwd+'/config/db');
 const bkfd2Password = require("pbkdf2-password");
 const hasher = bkfd2Password();
 const config = require(cwd+'/config/secret');
-const nodemailer = require(cwd + '/config/email');
-const crypto=require('crypto');
 
 exports.new_pw_page=(req,res)=>{
   if(req.user.User_isAdmin===0){

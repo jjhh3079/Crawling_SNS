@@ -50,18 +50,6 @@ exports.notice_insert=(req,res)=>{
     })
   }
 };
-exports.notice_update=(req,res)=>{
-  const notice_id = req.params.id;
-  const {notice_title,notice_content}=req.body;
-  if(req.user.User_isAdmin===0){
-    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
-  }else {
-    db.query('update notice set Notice_Title=?,Notice_Content=? where Notice_ID=?', [notice_title, notice_content, notice_id], (err, result) => {
-      if (err) console.log(err);
-      res.redirect('admin/contact/notice');           //업데이트할것
-    })
-  }
-};
 exports.notice_delete=(req,res)=>{
   const notice_id= req.body.id;
   console.log(String(notice_id));
@@ -74,6 +62,7 @@ exports.notice_delete=(req,res)=>{
     })
   }
 };
+
 exports.qna_list=(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
@@ -103,17 +92,6 @@ exports.qna_insert=(req,res)=>{
     db.query('insert into qna (Qna_Title,Qna_Content) values (?,?)', [qna_title, qna_content], (err) => {
       if (err) console.log(err);
       res.redirect('admin/contact/qnawrite');
-    })
-  }
-};
-exports.qna_update=(req,res)=>{
-  const {qna_id,qna_title,qna_content}=req.body;
-  if(req.user.User_isAdmin===0){
-    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
-  }else {
-    db.query('update qna set Qna_Title=?,Qna_Content=? where Qna_ID=?', [qna_title, qna_content, qna_id], (err, result) => {
-      if (err) console.log(err);
-      res.redirect('admin/contact/qna');
     })
   }
 };
@@ -151,3 +129,28 @@ exports.question_answer_insert=(req,res)=>{
     })
   }
 };
+
+// exports.notice_update=(req,res)=>{
+//   const notice_id = req.params.id;
+//   const {notice_title,notice_content}=req.body;
+//   if(req.user.User_isAdmin===0){
+//     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+//   }else {
+//     db.query('update notice set Notice_Title=?,Notice_Content=? where Notice_ID=?', [notice_title, notice_content, notice_id], (err, result) => {
+//       if (err) console.log(err);
+//       res.redirect('admin/contact/notice');           //업데이트할것
+//     })
+//   }
+// };
+
+// exports.qna_update=(req,res)=>{
+//   const {qna_id,qna_title,qna_content}=req.body;
+//   if(req.user.User_isAdmin===0){
+//     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+//   }else {
+//     db.query('update qna set Qna_Title=?,Qna_Content=? where Qna_ID=?', [qna_title, qna_content, qna_id], (err, result) => {
+//       if (err) console.log(err);
+//       res.redirect('admin/contact/qna');
+//     })
+//   }
+// };
