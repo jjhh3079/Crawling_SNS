@@ -7,7 +7,7 @@ exports.event_list=(req,res)=>{
   }else {
     db.query('select Event_ID,Event_Title,Event_Date from event', (err, results) => {
       if (err) console.log(err);
-      res.render('admin/event/event', {event: results});
+      res.render('admin/board/event', {event: results});
     })
   }
 };
@@ -18,7 +18,7 @@ exports.event_view=(req,res)=>{
   }else {
     db.query('select * from event where Event_ID=?',[event_id] ,(err, results) => {
       if (err) console.log(err);
-      res.render('admin/event/event_view', {event: results});        //수정
+      res.render('admin/board/event_view', {event: results});        //수정
     })
   }
 };
@@ -49,7 +49,7 @@ exports.event_delete=(req,res)=>{
   }else {
     db.query('delete from event where Event_ID=?', [event_id], (err) => {
       if (err) console.log(err);
-      res.redirect('admin/event/event');
+      res.redirect('admin/board/event');
     })
   }
 };
@@ -60,7 +60,7 @@ exports.hotdeal_list=(req,res)=>{
   }else {
     db.query('select * from hotdeal', (err, results) => {
       if (err) console.log(err);
-      res.render('admin/hotdeal/hotdeal', {hotdeal: results});
+      res.render('admin/board/hotdeal', {hotdeal: results});
     })
   }
 };
@@ -71,7 +71,7 @@ exports.hotdeal_view=(req,res)=>{
   }else {
     db.query('select * from hotdeal where Hotdeal_ID=?',[hotdeal_id], (err, results) => {
       if (err) console.log(err);
-      res.render('admin/hotdeal/hotdeal', {hotdeal: results});         //수정
+      res.render('admin/board/hotdeal_view', {hotdeal: results});         //수정
     })
   }
 };
@@ -91,7 +91,7 @@ exports.hotdeal_insert=(req,res)=>{
     db.query('insert into hotdeal (Hotdeal_Title,Hotdeal_Link,Hotdeal_Content) values (?,?,?)',
       [Title, Link, Content], (err) => {
         if (err) console.log(err);
-        res.redirect('admin/hotdeal/hotdeal');           //수정
+        res.redirect('admin/board/hotdeal');           //수정
       })
   }
 };
@@ -102,7 +102,7 @@ exports.hotdeal_delete=(req,res)=>{
   }else {
     db.query('delete from hotdeal where Hotdeal_ID=?', [hotdeal_id], (err) => {
       if (err) console.log(err);
-      res.redirect('admin_hotdeal');         //수정
+      res.redirect('admin/board/hotdeal');         //수정
     })
   }
 };
