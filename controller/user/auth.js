@@ -62,10 +62,10 @@ exports.login=(req,res)=>{
           res.cookie('jwt',token);
           //TODO:오버뷰 화면으로 이동
           if(user.User_isAdmin===1){
-            // res.render('admin/overview');
-          }else{
-            // res.redirect('/main')
             res.render('admin/overview');
+          }else{
+            res.redirect('/main')
+            // res.render('admin/overview');
           }
         }else{
           //비밀번호 틀림
