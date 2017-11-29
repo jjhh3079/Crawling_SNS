@@ -130,71 +130,64 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
     </div>
     <aside>
-
-        <div id="sidebar" class="nav-collapse">
+        <div id="sidebar" class="nav-collapse ">
             <!--logo start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <h3 class="centered" style="color:bisque">UserName</h3>
+                <h3 class="centered" style="color:bisque">Admin</h3>
                 <li class="mt">
-                    <a href="/overview">
-                        <i class="fa fa-dashboard" style="color:#20B38E"></i>
-                        <span style="color:#20B38E">Main</span>
+                    <a class="active" href="/admin" style="color:#20B38E">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Main</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="/admin/board/hotdeal" style="color:deeppink;">
+                        <i class="fa fa-desktop"></i>
+                        <span>핫딜 관리</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="/admin/board/event" style="color:darkorange">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>이벤트 관리</span>
                     </a>
                 </li>
 
                 <li class="sub-menu">
-                    <a class="active" href="/hotdeal" style="color:deeppink;">
-                        <i class="fa fa-desktop"  style="color:deeppink;"></i>
-                        <span>핫딜 </span>
-                    </a>
-
-
-                <li class="sub-menu">
-                    <a href="/event" style="color:darkorange">
-                        <i class=" fa fa-bar-chart-o" style="color:darkorange"></i>
-                        <span>이벤트 </span>
-                    </a>
-                    <!-- <ul class="sub">
-                    <li><a  href="calendar.html">Calendar</a></li>
-                    <li><a  href="gallery.html">Gallery</a></li>
-                    <li><a  href="todo_list.html">Todo List</a></li>
-                </ul> -->
-                </li>
-                <li class="sub-menu">
-                    <a href="/tracking" style="color:darkseagreen">
-                        <i class="fa fa-tasks" style="color:darkseagreen"></i>
-                        <span>배송조회</span>
-                    </a>
-                    <!-- <ul class="sub">
-                    <li><a  href="form_component.html">Form Components</a></li>
-                </ul> -->
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" style="color:skyblue">
-                        <i class="fa fa-th" style="color:skyblue"></i>
-                        <span>문의</span>
+                    <a href="javascript:;" style="color:darkseagreen">
+                        <i class="fa fa-th"></i>
+                        <span>문의 관리</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="/notice" style="color:turquoise">공지사항</a></li>
-                        <li><a href="/qna" style="color:aquamarine">Q&amp;A</a></li>
-                        <li><a href="/question" style="color:lightseagreen">1:1 문의</a></li>
+                        <li><a href="/admin/contact/notice" style="color:turquoise">공지사항</a></li>
+                        <li><a href="/admin/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
+                        <li><a href="/admin/contact/question" style="color:lightseagreen">1:1 문의</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;" style="color:yellowgreen">
-                        <i class="fa fa-cogs" style="color:yellowgreen"></i>
+                        <i class="fa fa-tasks"></i>
+                        <span>계정 관리</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/admin/account/list" style="color:tomato">유저 리스트</a></li>
+                        <li><a href="/admin/account/report" style="color:darkkhaki">신고처리</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs"></i>
                         <span>설정</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="/new_pw" style="color:tomato">비밀번호 변경</a></li>
-                        <li><a href="/settings" style="color:darkkhaki">기타 설정</a></li>
+                        <li><a href="/admin/new_pw">비밀번호 변경</a></li>
+                        <li><a href="/admin/settings">기타 설정</a></li>
                     </ul>
                 </li>
-
                 <li class="sub-menu">
-                    <a href="/" id="logout">
-                        <i class="fa fa-sign-out" style="color:dodgerblue"></i>
-                        <span style="color:dodgerblue">로그아웃</span>
+                    <a href="/" id="logout" style="color:dodgerblue" id="logout">
+                        <i class="fa fa-sign-out"></i>
+                        <span>로그아웃</span>
                     </a>
                 </li>
             </ul>
@@ -209,12 +202,12 @@
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
-            <div align='center'><a href="/overview" class="logo"><b>SHOW HOT</b></a></div>
+            <div align='center'><a href="/admin" class="logo"><b>SHOW HOT _Admin</b></a></div>
             <div class="container-fluid">
                 <br>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <i class="fa fa-desktop" style="color:deeppink;"></i><a href="#" style="color:deeppink;">핫딜</a>
+                        <i class="fa fa-desktop" style="color:deeppink;"></i><a href="#" style="color:deeppink;">이벤트</a>
                     </li>
                 </ol>
                 <div class="card-body">

@@ -7,7 +7,7 @@ exports.report_list=(req,res)=>{
   }else {
     db.query('select * from report', (err, results) => {
       if (err) console.log(err);
-      res.render('report', {report: results});
+      res.render('admin/report/report', {report: results});
     })
   }
 };
