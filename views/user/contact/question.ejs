@@ -131,7 +131,7 @@
                      <ul class="sidebar-menu" id="nav-accordion">
                            <h3 class="centered" style="color:bisque">UserName</h3>
                          <li class="mt">
-                             <a href="/overview">
+                             <a href="/main">
                                  <i class="fa fa-dashboard" style="color:#20B38E"></i>
                                  <span style="color:#20B38E">Main</span>
                              </a>
@@ -170,10 +170,10 @@
                                  <span>문의</span>
                              </a>
                              <ul class="sub">
-                                 <li><a  href="/notice" style="color:turquoise">공지사항</a></li>
-                                 <li><a  href="/qna" style="color:aquamarine" >Q&amp;A</a></li>
-                                 <li><a  href="/question" style="color:lightseagreen">1:1 문의</a></li>
-                             </ul>
+                                <li><a href="/contact/notice" style="color:turquoise">공지사항</a></li>
+                                <li><a href="/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
+                                <li><a href="/contact/question" style="color:lightseagreen">1:1 문의</a></li>
+                            </ul>
                          </li>
                          <li class="sub-menu">
                              <a href="javascript:;" style="color:yellowgreen" >
@@ -204,7 +204,7 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-           <div align='center'><a href="/overview" class="logo"><b>SHOW HOT</b></a></div>
+           <div align='center'><a href="/main" class="logo"><b>SHOW HOT</b></a></div>
             <div class="container-fluid">
                <br>
                 <ol class="breadcrumb">
@@ -226,7 +226,7 @@
                   <tbody>
                     <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
                     <% question.forEach((item)=>{ %>
-                    <tr class='clickable-row' data-href="/questionview">
+                    <tr class='clickable-row' data-href="/contact/question/<%= item.Question_ID %>">
                         <td><%= item.Question_ID %></td>
                         <td><%= item.Question_Title %></td>
                         <td><%= item.User_ID %></td>
@@ -238,7 +238,7 @@
               </div>
             </div>
             </div><!--/row -->
-            <a class="write-btn" href="/question_write"><button type="button" class="btn btn-write"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+            <a class="write-btn" href="/contact/question_write"><button type="button" class="btn btn-write"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
           </section>
       </section>
 
@@ -247,7 +247,7 @@
       <footer class="site-footer">
           <div class="text-center">
             Copyright © Your Website 2017
-              <a href="/overview" class="go-top">
+              <a href="/main" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>

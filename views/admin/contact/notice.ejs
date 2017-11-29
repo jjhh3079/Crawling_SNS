@@ -90,30 +90,28 @@
             <ul class="sidebar-menu" id="nav-accordion">
                 <h3 class="centered" style="color:bisque">Admin</h3>
                 <li class="mt">
-                    <a href="/admin" style="color:#20B38E">
+                    <a class="active" href="/admin" style="color:#20B38E">
                         <i class="fa fa-dashboard"></i>
                         <span>Main</span>
                     </a>
                 </li>
-
                 <li class="sub-menu">
                     <a href="/admin/board/hotdeal" style="color:deeppink;">
                         <i class="fa fa-desktop"></i>
                         <span>핫딜 관리</span>
                     </a>
                 </li>
-
                 <li class="sub-menu">
                     <a href="/admin/board/event" style="color:darkorange">
                         <i class=" fa fa-bar-chart-o"></i>
-                        <span>이벤트</span>
+                        <span>이벤트 관리</span>
                     </a>
                 </li>
 
                 <li class="sub-menu">
-                    <a class="active" href="javascript:;" style="color:darkseagreen">
+                    <a href="javascript:;" style="color:darkseagreen">
                         <i class="fa fa-th"></i>
-                        <span>문의</span>
+                        <span>문의 관리</span>
                     </a>
                     <ul class="sub">
                         <li><a href="/admin/contact/notice" style="color:turquoise">공지사항</a></li>
@@ -127,7 +125,7 @@
                         <span>계정 관리</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="/admin/account/user_list" style="color:tomato">유저 리스트</a></li>
+                        <li><a href="/admin/account/list" style="color:tomato">유저 리스트</a></li>
                         <li><a href="/admin/account/report" style="color:darkkhaki">신고처리</a></li>
                     </ul>
                 </li>
@@ -142,7 +140,7 @@
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a href="/logout" id="logout" style="color:dodgerblue" id="logout">
+                    <a href="/" id="logout" style="color:dodgerblue" id="logout">
                         <i class="fa fa-sign-out"></i>
                         <span>로그아웃</span>
                     </a>
@@ -159,7 +157,7 @@
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
-            <div align='center'><a href="/main" class="logo"><b>SHOW HOT _Admin</b></a></div>
+            <div align='center'><a href="/admin" class="logo"><b>SHOW HOT _Admin</b></a></div>
             <div class="container-fluid">
                 <br>
                 <ol class="breadcrumb">

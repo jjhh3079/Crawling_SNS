@@ -10,37 +10,22 @@
 
     <title>Show HOt -What you want</title>
 
-    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/style-responsive.css" rel="stylesheet">
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="/assets/js/gritter/css/jquery.gritter.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/lineicons/style.css">
-    <!-- Bootstrap core CSS-->
+    <link href="/assets/js/gritter/css/jquery.gritter.css" rel="stylesheet" />
+    <link href="/assets/lineicons/style.css" rel="stylesheet">
+
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template-->
     <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Page level plugin CSS-->
     <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-    <!-- Custom styles for this template-->
+
     <link href="/css/sb-admin.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
     <link href="/assets/css/style-responsive.css" rel="stylesheet">
-
+    <link href="/assets/css/table-responsive" rel="stylesheet">
     <script src="/assets/js/chart-master/Chart.js"></script>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style>
-        .container-fluid ol {
-            font-size: 200%;
-        }
-    </style>
 </head>
 
 <body>
@@ -48,9 +33,7 @@
     <section id="container">
 
         <div class="nav notify-row" id="top_menu">
-            <!--  notification start -->
             <ul class="nav top-menu">
-                <!-- inbox dropdown start-->
                 <li id="header_inbox_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                           <i class="fa fa-envelope-o" style="font-size:40px"></i>
@@ -116,160 +99,139 @@
                 </li>
                 <!-- inbox dropdown end -->
             </ul>
-            <!--  notification end -->
         </div>
 
         <div id="toggle-menu" class="sidebar-toggle-box">
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
         <aside>
-                
-                 <div id="sidebar"  class="nav-collapse">
-                   <!--logo start-->
-                     <ul class="sidebar-menu" id="nav-accordion">
-                           <h3 class="centered" style="color:bisque">UserName</h3>
-                         <li class="mt">
-                             <a href="/overview">
+            <div id="sidebar" class="nav-collapse">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <h3 class="centered" style="color:bisque">UserName</h3>
+                    <li class="mt">
+                        <a class="active" href="/main">
                                  <i class="fa fa-dashboard" style="color:#20B38E"></i>
                                  <span style="color:#20B38E">Main</span>
                              </a>
-                         </li>
-       
-                         <li class="sub-menu">
-                             <a href="/hotdeal"  style="color:deeppink;">
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/hotdeal" style="color:deeppink;">
                                  <i class="fa fa-desktop"  style="color:deeppink;"></i>
                                  <span>핫딜 </span>
                              </a>
-       
-       
-                         <li class="sub-menu">
-                             <a href="/event" style="color:darkorange">
+                        <li class="sub-menu">
+                            <a href="/event" style="color:darkorange">
                                  <i class=" fa fa-bar-chart-o" style="color:darkorange"></i>
                                  <span>이벤트 </span>
                              </a>
-                             <!-- <ul class="sub">
-                                 <li><a  href="calendar.html">Calendar</a></li>
-                                 <li><a  href="gallery.html">Gallery</a></li>
-                                 <li><a  href="todo_list.html">Todo List</a></li>
-                             </ul> -->
-                         </li>
-                         <li class="sub-menu">
-                             <a href="/tracking" style="color:darkseagreen" >
+                        </li>
+                        <li class="sub-menu">
+                            <a href="/tracking" style="color:darkseagreen">
                                  <i class="fa fa-tasks" style="color:darkseagreen"></i>
                                  <span>배송조회</span>
                              </a>
-                             <!-- <ul class="sub">
-                                 <li><a  href="form_component.html">Form Components</a></li>
-                             </ul> -->
-                         </li>
-                         <li class="sub-menu">
-                             <a class="active" href="javascript:;" style="color:skyblue">
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" style="color:skyblue">
                                  <i class="fa fa-th" style="color:skyblue"></i>
                                  <span>문의</span>
                              </a>
-                             <ul class="sub">
-                                 <li><a  href="/notice" style="color:turquoise">공지사항</a></li>
-                                 <li><a  href="/qna" style="color:aquamarine" >Q&amp;A</a></li>
-                                 <li><a  href="/question" style="color:lightseagreen">1:1 문의</a></li>
-                             </ul>
-                         </li>
-                         <li class="sub-menu">
-                             <a href="javascript:;" style="color:yellowgreen" >
+                            <ul class="sub">
+                                <li><a href="/contact/notice" style="color:turquoise">공지사항</a></li>
+                                <li><a href="/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
+                                <li><a href="/contact/question" style="color:lightseagreen">1:1 문의</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" style="color:yellowgreen">
                                  <i class="fa fa-cogs" style="color:yellowgreen"></i>
                                  <span>설정</span>
                              </a>
-                             <ul class="sub">
-                                 <li><a  href="/new_pw" style="color:tomato">비밀번호 변경</a></li>
-                                 <li><a  href="/settings" style="color:darkkhaki">기타 설정</a></li>
-                             </ul>
-                         </li>
-                         
-                         <li class="sub-menu">
-                             <a href="/" id="logout">
+                            <ul class="sub">
+                                <li><a href="/new_pw" style="color:tomato">비밀번호 변경</a></li>
+                                <li><a href="/settings" style="color:darkkhaki">기타 설정</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="/" id="logout">
                                  <i class="fa fa-sign-out" style="color:dodgerblue"></i>
                                  <span style="color:dodgerblue">로그아웃</span>
                              </a>
-                         </li>
-                     </ul>
-                     <!-- sidebar menu end-->
-                 </div>
-             </aside>
-        <!--sidebar end-->
+                        </li>
+                </ul>
+            </div>
+        </aside>
 
-        <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                <div align='center'><a href="/overview" class="logo"><b>SHOW HOT</b></a></div>
-                <div class="container-fluid">
-                    <br>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="#">공지사항</a>
-                        </li>
-                        <li class="breadcrumb-item active"></li>
-                    </ol>
-                    <div class="card-body">
-                        <div class="row mt" style="margin-left:7%">
-                            <div class="col-lg-8">
-                                <div class="form-panel">
-                                    <form class="form-horizontal style-form" method="post">
-                                        <span class="col-xs-2 col-sm-2 col-lg-2 col-md-2 badge">공지사항</span>
-                                        <span class="col-xs-12 col-sm-12 col-lg-12 col-md-12 control-label" style="margin-bottom:2%"><%=notice[0].Notice_Title%></span>
-                                        <div class="form-group">
-                                            <div class="col-sm-9 col-md-10 col-lg-10">
-                                                <textarea class="form-control" rows="18" name="notice_content"><%=notice[0].Notice_Content%></textarea>
-                                            </div>
-                                            <div class="col-sm-12 col-md-3 col-lg-3">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- col-lg-12-->
-                        </div>
-                        <div class="row mt" style="margin-left:7%">
-                            <div class="col-lg-8">
-                                <div class="form-panel" style="height:100%;">
-                                    <div class="col-lg-12 col-md-12 col-xs-12">
-                                        <div class="col-lg-2 col-md-2" style="float:left">아이디</div>
-                                        <div class="col-lg-8 col-md-8" style="float:left">내용</div>
-                                        <div class="col-lg-2 col-md-2" style="float:left">시간</div>
-                                        <div class="col-lg-12">&nbsp</div>
-                                        <hr>
+                <div align='center'>
+                    <a href="/main" class="logo"><b>SHOW HOT</b></a>
+                </div>
+                <div class="container col-lg-12">
+                    <div class="row mt">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="form-panel form-horizontal style-form" style="background-color:lightgray">
+                                <span class="col-xs-4 col-sm-4 col-lg-4 col-md-4 badge" style="height:40px; width:200px; font-size:25px;">공지사항</span>
+                                <div class="col-lg-12 pull-left" style="font-size:30px;">제목 : <%=notice[0].Notice_Title%></div>
+                                <div class="pull-right" style="font-size:20px;">작성일 : <%=notice[0].Notice_Date%></div>   
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <div class="form-control" style="font-size:20px; height:300px;" rows="15" name="notice_content"><%=notice[0].Notice_Content%></div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-xs-12">
-                                        <div class="col-lg-2 col-md-2" style="float:left">아이디</div>
-                                        <div class="col-lg-8 col-md-8" style="float:left">내용</div>
-                                        <div class="col-lg-2 col-md-2" style="float:left">시간</div>
-                                        <div class="col-lg-12">&nbsp</div>
-                                        <hr>
+                                    <div class="col-sm-12 col-md-3 col-lg-3">
                                     </div>
-                                    <form class="form-horizontal style-form" method="get" action="/noticeview">
-                                        <div class="form-group">
-                                            <div class="col-lg-2" align=center>아이디</div>
-                                            <div class="col-sm-8 col-md-8 col-lg-8">
-                                                <textarea class="form-control" rows="4" name="notice_content"></textarea>
-                                            </div>
-                                            <div class="col-sm-2 col-md-2 col-lg-2">
-                                                <button type="submit" class="col-sm-9 col-md-12 col-lg-12 btn btn-lg btn-theme02" style="height:50px;">작성</button>
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <!-- /row -->
+                        <!-- col-lg-12-->
+                    </div>
+                    <div class="row mt">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="form-panel">
+                                <div class="col-lg-12 col-md-12 col-xs-12">
+                                    <span class="col-lg-2 col-md-2 btn-theme02">teri941227@gmail.com</span>
+                                    <span class="col-lg-8 col-md-8">내용 1 내용 2 내용 1 내용 2 내용 1 내내용 1 내용 2 내용 1 내용 2 내용 1 내용 2 용내용 1 내용 2 내용 1 내용 2 내용 1 내용 2  2 내용 1 내용 2  내용 1 내용 2 </span>
+                                    <span class="col-lg-1 col-md-1">data data</span>
+                                    <div class="col-lg-1 col-md-1" style="float:left">
+                                        <form method="post"><input type="hidden" name="id" value=""><input type="submit" value="삭제"></form>
+                                        <form method="post"><input type="hidden" name="id" value=""><input type="submit" value="신고"></form>
+                                    </div>
+                                    <div class="col-lg-12">&nbsp;</div>
+                                    <br>
+                                    <br>
+                                    <hr>
+                                    <span class="col-lg-2 col-md-2 btn-theme04">jjhh@gmail.com</span>
+                                    <span class="col-lg-8 col-md-8">내용 1 내용 2 내용 1 내용 2 내용 1 내내용 1 내용 2 내용 1 내용 2 내용 1 내용 2 용내용 1 내용 2 내용 1 내용 2 내용 1 내용 2  2 내용 1 내용 2  내용 1 내용 2 </span>
+                                    <span class="col-lg-1 col-md-1">data data</span>
+                                    <div class="col-lg-1 col-md-1" style="float:left">
+                                        <form method="post"><input type="hidden" name="id" value=""><input type="submit" value="삭제"></form>
+                                        <form method="post"><input type="hidden" name="id" value=""><input type="submit" value="삭제"></form>
+                                    </div>
+                                    <div class="col-lg-12">&nbsp;</div>
+                                    <br>
+                                    <br>
+                                    <hr>
+                                </div>
+                                <form class="form-horizontal style-form" method="post" action="/hotdeal/comment">
+                                    <div class="form-group">
+                                        <input type="hidden" name="hotdeal_id" value="">
+                                        <div class="col-sm-10 col-md-10 col-lg-10">
+                                            <textarea class="form-control" rows="4" name="comment"></textarea>
+                                        </div>
+                                        <div class="col-sm-2 col-md-2 col-lg-2">
+                                            <button type="submit" class="col-sm-9 col-md-12 col-lg-12 btn btn-lg btn-theme02" style="height:50px; font-size:25px;">작성</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!--/row -->
             </section>
         </section>
 
-        <!--main content end-->
-        <!--footer start-->
         <footer class="site-footer">
             <div class="text-center">
                 Copyright © Your Website 2017
@@ -278,10 +240,18 @@
               </a>
             </div>
         </footer>
-        <!--footer end-->
     </section>
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
-    <!-- js placed at the end of the document so the pages load faster -->
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/jquery-3.2.1.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
@@ -289,74 +259,11 @@
     <script src="/assets/js/jquery.scrollTo.min.js"></script>
     <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="/assets/js/jquery.sparkline.js"></script>
-
-    <script>
-			$(document).ready(function () {
-				$("#logout").on("click", function(e) {
-                    //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-					if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-						e.preventDefault();
-					}
-				});
-			});
-    </script>
-    <!--common script for all pages-->
     <script src="/assets/js/common-scripts.js"></script>
-
     <script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
     <script src="/assets/js/sparkline-chart.js"></script>
     <script src="/assets/js/zabuto_calendar.js"></script>
-    <!-- Bootstrap core JavaScript-->
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="/js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="/js/sb-admin-datatables.min.js"></script>
-
-
-    <script type="application/javascript">
-        $(document).ready(function () {
-            $("#date-popover").popover({ html: true, trigger: "manual" });
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-                ajax: {
-                    url: "show_data.php?action=1",
-                    modal: true
-                },
-                legend: [
-                    { type: "text", label: "특별 이벤트", badge: "00" },
-                    { type: "block", label: "평범 이벤트", }
-                ]
-            });
-        });
-
-
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-        }
-    </script>
-
 
 </body>
 
