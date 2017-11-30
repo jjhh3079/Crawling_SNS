@@ -6,16 +6,18 @@ const passport = require(cwd+'/config/passport');
 
 // 공지사항
 router.get('/notice',passport.authenticate('jwt',{session:false}),controller.notice_list);
-// 공지사항 보기
-router.get('/notice/:id',passport.authenticate('jwt',{session:false}),controller.notice_list);
 // 공지사항 작성 폼
 router.get('/notice/insert',passport.authenticate('jwt',{session:false}),(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
-    res.render('admin/contact/notice_form',{url:"insert"})
+    res.render('admin/contact/notice_form');
   }
 });
+// 공지사항 보기
+router.get('/notice/:id',passport.authenticate('jwt',{session:false}),controller.notice_view);
+
+
 router.get('/notice/update/:id',passport.authenticate('jwt',{session:false}),(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
@@ -42,7 +44,7 @@ router.post('/question/insert',passport.authenticate('jwt',{session:false}),cont
 
 router.get('/qna',passport.authenticate('jwt',{session:false}),controller.qna_list);
 router.get('/qna/:id',passport.authenticate('jwt',{session:false}),controller.qna_view);
-router.get('/qna/insert',passport.authenticate('jwt',{session:false}),controller.qna_insert);
+router.post('/qna/insert',passport.authenticate('jwt',{session:false}),controller.qna_insert);
 
 router.get('/qna/delete/:id',passport.authenticate('jwt',{session:false}),controller.qna_delete);
 

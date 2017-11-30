@@ -53,6 +53,20 @@ exports.event_delete=(req,res)=>{
     })
   }
 };
+exports.event_view=(req,res)=>{
+  const event_id=req.params.id;
+  let event,event_comment;
+  db.query('select * from event where Event_ID=?',[event_id],(err,results)=>{
+    if(err) console.log(err);
+    event=results;
+    db.query('select * from comment,user where comment.User_ID=user.User_ID and Board_Name=1 and Board_ID=?',[event_id],(err,results)=>{
+      if(err) console.log(err);
+      hotdeal_comment=results;
+      res.render('admin/board/event_click',{event:event,event_comment:event_comment});
+    });
+
+  })
+};
 
 exports.hotdeal_list=(req,res)=>{
   if(req.user.User_isAdmin===0){
@@ -64,17 +78,17 @@ exports.hotdeal_list=(req,res)=>{
     })
   }
 };
-exports.hotdeal_view=(req,res)=>{
-  const hotdeal_id=req.params.id;
-  if(req.user.User_isAdmin===0){
-    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
-  }else {
-    db.query('select * from hotdeal where Hotdeal_ID=?',[hotdeal_id], (err, results) => {
-      if (err) console.log(err);
-      res.render('admin/board/hotdeal_view', {hotdeal: results});         //수정
-    })
-  }
-};
+// exports.hotdeal_view=(req,res)=>{
+//   const hotdeal_id=req.params.id;
+//   if(req.user.User_isAdmin===0){
+//     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+//   }else {
+//     db.query('select * from hotdeal where Hotdeal_ID=?',[hotdeal_id], (err, results) => {
+//       if (err) console.log(err);
+//       res.render('admin/board/hotdeal_view', {hotdeal: results});         //수정
+//     })
+//   }
+// };
 
 exports.hotdeal_insert_form=(req,res)=>{
   if(req.user.User_isAdmin===0){
@@ -83,6 +97,22 @@ exports.hotdeal_insert_form=(req,res)=>{
     res.render('admin/board/hotdeal_insert_form');
   }
 };
+
+exports.hotdeal_view=(req,res)=>{
+  const hotdeal_id=req.params.id;
+  let hotdeal,hotdeal_comment;
+  db.query('select * from hotdeal where Hotdeal_ID=?',[hotdeal_id],(err,results)=>{
+    if(err) console.log(err);
+    hotdeal=results;
+    db.query('select * from comment,user where comment.User_ID=user.User_ID and Board_Name=1 and Board_ID=?',[hotdeal_id],(err,results)=>{
+      if(err) console.log(err);
+      hotdeal_comment=results;
+      res.render('admin/board/hotdeal_click',{hotdeal:hotdeal,hotdeal_comment:hotdeal_comment});
+    });
+
+  })
+};
+
 exports.hotdeal_insert=(req,res)=>{
   const {hotdeal_Title,hotdeal_Link,hotdeal_Content}=req.body;
   if(req.user.User_isAdmin===0){

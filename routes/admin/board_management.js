@@ -11,8 +11,12 @@ const controller = require(cwd+'/controller/admin/board_management');
 router.get('/event',passport.authenticate('jwt',{session:false}),controller.event_list);
 router.get('/hotdeal',passport.authenticate('jwt',{session:false}),controller.hotdeal_list);
 
+
 router.get('/event/insert',passport.authenticate('jwt',{session:false}),controller.event_insert_form);
 router.get('/hotdeal/insert',passport.authenticate('jwt',{session:false}),controller.hotdeal_insert_form);
+
+router.get('/hotdeal/:id',passport.authenticate('jwt',{session:false}),controller.hotdeal_view);
+router.get('/event/:id',passport.authenticate('jwt',{session:false}),controller.event_view);
 
 router.post('/event/insert',passport.authenticate('jwt',{session:false}),controller.event_insert);
 router.post('/hotdeal/insert',passport.authenticate('jwt',{session:false}),controller.hotdeal_insert);
