@@ -29,6 +29,7 @@
     "phantomjs": "^2.1.7",
     "serve-favicon": "~2.4.5",
     "spooky": "^0.2.5",
-    "tiny-jsonrpc": "^2.0.1"
+    "tiny-jsonrpc": "^2.0.1",
+    "request": "latest"
   }
 }
