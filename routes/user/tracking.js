@@ -6,10 +6,10 @@ const passport = require(cwd+'/config/passport');
 
 //tracking
 
-router.get('/',controller.tracking);
+router.get('/',controller.tracking_page);
 
 //배송번호 입력
-router.post('/insert',);
+router.post('/insert',controller.tracking_insert);
 router.post('/delete/:id');
 
 module.exports=router;

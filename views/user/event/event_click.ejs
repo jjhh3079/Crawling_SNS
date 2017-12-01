@@ -240,16 +240,6 @@
             </div>
         </footer>
     </section>
-    <script>
-        $(document).ready(function () {
-            $("#logout").on("click", function (e) {
-                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-                    e.preventDefault();
-                }
-            });
-        });
-    </script>
 
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/jquery-3.2.1.min.js"></script>
@@ -263,6 +253,16 @@
     <script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
     <script src="/assets/js/sparkline-chart.js"></script>
     <script src="/assets/js/zabuto_calendar.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
 </body>
 

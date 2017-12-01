@@ -314,6 +314,16 @@
     <script type="text/javascript" src="assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
     <script src="assets/js/form-component.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
 
 </body>

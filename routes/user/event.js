@@ -14,6 +14,6 @@ router.get('/down/:id',passport.authenticate('jwt',{session:false}),controller.e
 router.post('/grade/:id',passport.authenticate('jwt',{session:false}),controller.event_grade);
 
 router.post('/comment',passport.authenticate('jwt',{session:false}),controller.event_comment);
-router.post('/:id/comment/delete/:comment_id',passport.authenticate('jwt',{session:false}),controller.event_comment_delete);
+router.post('/comment/delete/:id',passport.authenticate('jwt',{session:false}),controller.event_comment_delete);
 
 module.exports=router;

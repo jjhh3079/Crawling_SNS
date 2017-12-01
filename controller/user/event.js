@@ -91,11 +91,11 @@ exports.event_comment=(req,res)=>{
 };
 exports.event_comment_delete=(req,res)=>{
   const event_id = req.params.id;
-  const comment_id = req.params.comment_id;
+  const comment_id = req.body.comment_id;
   const user_id=req.user.User_ID;
   db.query('delete from comment where User_ID=? and Comment_ID=?',
     [user_id,comment_id],(err)=>{
     if(err) console.log(err);
-    res.render('user/event/event/'+event_id)
+    res.redirect('/event/'+event_id);
   });
 };
