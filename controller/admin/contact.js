@@ -22,13 +22,18 @@ exports.notice_list=(req,res)=>{
 };
 exports.notice_view=(req,res)=>{
   const notice_id=req.params.id;
+  let notice,notice_comment;
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
     db.query('select * from notice where Notice_ID=?',[notice_id],(err,results)=>{
       if(err) console.log(err);
-      console.log(results);
-      res.render('admin/contact/notice_view',{notice:results});
+      notice=results;
+      db.query('select * from comment,user where comment.User_ID=user.User_ID and Board_name=2 and Board_ID=?',[notice_id],(err,results)=>{
+      if(err) console.log(err);  
+      notice_comment=results;
+      res.render('admin/contact/notice_view',{notice:notice,notice_comment:notice_comment});
+    });
     })
   }
 };
@@ -132,6 +137,27 @@ exports.question_answer_insert=(req,res)=>{
       res.redirect('/admin/contact/question');
     })
   }
+};
+exports.notice_comment=(req,res)=>{
+  const notice_id =req.body.notice_id;
+  const comment = req.body.comment;
+  const notice =2;
+  db.query('insert into comment (User_ID,Board_Name,Board_ID,Comment_Content) values (?,?,?,?)',
+    [req.user.User_ID,notice,notice_id,comment],(err)=>{
+      if(err) console.log(err);
+      res.redirect('/admin/contact/notice/'+notice_id);
+    })
+};
+exports.notice_comment_delete=(req,res)=>{
+  const notice_id = req.params.id;
+  const comment_id = req.body.comment_id;
+  const user_id=req.user.User_ID;
+  console.log(comment_id);
+  db.query('delete from comment where User_ID=? and Comment_ID=?',
+    [user_id,comment_id],(err)=>{
+      if(err) console.log(err);
+      res.redirect('/admin/contact/notice/'+notice_id)
+    });
 };
 
 // exports.notice_update=(req,res)=>{

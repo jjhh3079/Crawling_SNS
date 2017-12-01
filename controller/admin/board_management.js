@@ -59,9 +59,9 @@ exports.event_view=(req,res)=>{
   db.query('select * from event where Event_ID=?',[event_id],(err,results)=>{
     if(err) console.log(err);
     event=results;
-    db.query('select * from comment,user where comment.User_ID=user.User_ID and Board_Name=1 and Board_ID=?',[event_id],(err,results)=>{
+    db.query('select * from comment,user where comment.User_ID=user.User_ID and Board_Name=0 and Board_ID=?',[event_id],(err,results)=>{
       if(err) console.log(err);
-      hotdeal_comment=results;
+      event_comment=results;
       res.render('admin/board/event_click',{event:event,event_comment:event_comment});
     });
 
@@ -135,6 +135,51 @@ exports.hotdeal_delete=(req,res)=>{
       res.redirect('/admin/board/hotdeal');         //수정
     })
   }
+};
+
+// 댓글입력
+exports.hotdeal_comment=(req,res)=>{
+  const hotdeal_id =req.body.hotdeal_id;
+  const comment = req.body.comment;
+  const hotdeal =1;
+  db.query('insert into comment (User_ID,Board_Name,Board_ID,Comment_Content) values (?,?,?,?)',
+    [req.user.User_ID,hotdeal,hotdeal_id,comment],(err)=>{
+      if(err) console.log(err);
+      res.redirect('/admin/board/hotdeal/'+hotdeal_id);
+    })
+};
+
+exports.hotdeal_comment_delete=(req,res)=>{
+  const hotdeal_id = req.params.id;
+  const comment_id = req.body.comment_id;
+  const user_id=req.user.User_ID;
+  console.log(comment_id);
+  db.query('delete from comment where User_ID=? and Comment_ID=?',
+    [user_id,comment_id],(err)=>{
+      if(err) console.log(err);
+      res.redirect('/admin/board/hotdeal/'+hotdeal_id)
+    });
+};
+exports.event_comment=(req,res)=>{
+  const event_id =req.body.event_id;
+  const comment = req.body.comment;
+  const event =0;
+  db.query('insert into comment (User_ID,Board_Name,Board_ID,Comment_Content) values (?,?,?,?)',
+    [req.user.User_ID,event,event_id,comment],(err)=>{
+      if(err) console.log(err);
+      res.redirect('/admin/board/event/'+event_id);
+    })
+};
+exports.event_comment_delete=(req,res)=>{
+  const event_id = req.params.id;
+  const comment_id = req.body.comment_id;
+  const user_id=req.user.User_ID;
+  console.log(comment_id);
+  db.query('delete from comment where User_ID=? and Comment_ID=?',
+    [user_id,comment_id],(err)=>{
+      if(err) console.log(err);
+      res.redirect('/admin/board/event/'+event_id)
+    });
 };
 
 // exports.event_update=(req,res)=>{
