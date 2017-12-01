@@ -361,16 +361,6 @@
       </footer>
       <!--footer end-->
   </section>
-  <script>
-    $(document).ready(function () {
-        $("#logout").on("click", function(e) {
-            //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-            if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-                e.preventDefault();
-            }
-        });
-    });
-</script>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
@@ -382,6 +372,16 @@
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
     <!--script for this page-->
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>    
