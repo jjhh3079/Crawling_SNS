@@ -47,6 +47,10 @@ router.post('/qna/insert',passport.authenticate('jwt',{session:false}),controlle
 router.get('/qna/delete/:id',passport.authenticate('jwt',{session:false}),controller.qna_delete);
 
 router.get('/qna_form',passport.authenticate('jwt',{session:false}),controller.qna_form);
+
+router.post('/notice/comment',passport.authenticate('jwt',{session:false}),controller.notice_comment);
+router.post('/notice/comment/delete/:id',passport.authenticate('jwt',{session:false}),controller.notice_comment_delete);
+
 // router.get('/qna/update/:id',passport.authenticate('jwt',{session:false}),controller.qna_update);
 // router.post('/notice/update/:id',passport.authenticate('jwt',{session:false}),controller.notice_update);
 module.exports = router;

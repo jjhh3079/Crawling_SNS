@@ -28,4 +28,10 @@ router.post('/event/delete/:id',passport.authenticate('jwt',{session:false}),con
 router.post('/hotdeal/delete/:id',passport.authenticate('jwt',{session:false}),controller.hotdeal_delete);
 
 
+router.post('/hotdeal/comment',passport.authenticate('jwt',{session:false}),controller.hotdeal_comment);
+router.post('/hotdeal/comment/delete/:id',passport.authenticate('jwt',{session:false}),controller.hotdeal_comment_delete);
+
+router.post('/event/comment',passport.authenticate('jwt',{session:false}),controller.event_comment);
+router.post('/event/comment/delete/:id',passport.authenticate('jwt',{session:false}),controller.event_comment_delete);
+
 module.exports = router;

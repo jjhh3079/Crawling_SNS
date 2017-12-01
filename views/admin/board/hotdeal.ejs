@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,31 +28,44 @@
     <link href="/assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="/assets/js/chart-master/Chart.js"></script>
-
+    <style>
+            .container-fluid ol {
+                font-size: 200%;
+            }
+    
+            .updown {
+                text-align: center;
+            }
+    
+            .updown p {
+                margin: 0;
+            }
+        </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
-<section id="container">
-    <div class="nav notify-row" id="top_menu">
-        <!--  notification start -->
-        <ul class="nav top-menu">
-            <!-- inbox dropdown start-->
-            <li id="header_inbox_bar" class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+    <section id="container">
+        <div class="nav notify-row" id="top_menu">
+            <!--  notification start -->
+            <ul class="nav top-menu">
+                <!-- inbox dropdown start-->
+                <li id="header_inbox_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                     <i class="fa fa-envelope-o" style="font-size:40px"></i>
                     <span class="badge bg-theme">n</span>
                 </a>
-                <ul class="dropdown-menu extended inbox">
-                    <div class="notify-arrow notify-arrow-green"></div>
-                    <li>
-                        <p class="green">n개의 알람이 있습니다</p>
-                    </li>
-                    <li>
-                        <a href="index.html#">
+                    <ul class="dropdown-menu extended inbox">
+                        <div class="notify-arrow notify-arrow-green"></div>
+                        <li>
+                            <p class="green">n개의 알람이 있습니다</p>
+                        </li>
+                        <li>
+                            <a href="index.html#">
                             <span class="photo"><img alt="avatar" src="assets/img/cap.PNG"></span>
                             <span class="subject">
                                   <span class="from">정하린</span>
@@ -61,263 +75,268 @@
                                      안녕
                                   </span>
                         </a>
-                    </li>
-                    <li>
-                        <a href="index.html#">모든 알람 보기</a>
-                    </li>
-                </ul>
-            </li>
-            <!-- inbox dropdown end -->
-        </ul>
-        <!--  notification end -->
-    </div>
+                        </li>
+                        <li>
+                            <a href="index.html#">모든 알람 보기</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- inbox dropdown end -->
+            </ul>
+            <!--  notification end -->
+        </div>
 
-    <div id="toggle-menu" class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-    </div>
-    <aside>
-        <div id="sidebar" class="nav-collapse ">
-            <!--logo start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-                <h3 class="centered" style="color:bisque">Admin</h3>
-                <li class="mt">
-                    <a class="active" href="/admin" style="color:#20B38E">
+        <div id="toggle-menu" class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        </div>
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!--logo start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <h3 class="centered" style="color:bisque">Admin</h3>
+                    <li class="mt">
+                        <a class="active" href="/admin" style="color:#20B38E">
                         <i class="fa fa-dashboard"></i>
                         <span>Main</span>
                     </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="/admin/board/hotdeal" style="color:deeppink;">
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/admin/board/hotdeal" style="color:deeppink;">
                         <i class="fa fa-desktop"></i>
                         <span>핫딜 관리</span>
                     </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="/admin/board/event" style="color:darkorange">
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/admin/board/event" style="color:darkorange">
                         <i class=" fa fa-bar-chart-o"></i>
                         <span>이벤트 관리</span>
                     </a>
-                </li>
+                    </li>
 
-                <li class="sub-menu">
-                    <a href="javascript:;" style="color:darkseagreen">
+                    <li class="sub-menu">
+                        <a href="javascript:;" style="color:darkseagreen">
                         <i class="fa fa-th"></i>
                         <span>문의 관리</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="/admin/contact/notice" style="color:turquoise">공지사항</a></li>
-                        <li><a href="/admin/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
-                        <li><a href="/admin/contact/question" style="color:lightseagreen">1:1 문의</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" style="color:yellowgreen">
+                        <ul class="sub">
+                            <li><a href="/admin/contact/notice" style="color:turquoise">공지사항</a></li>
+                            <li><a href="/admin/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
+                            <li><a href="/admin/contact/question" style="color:lightseagreen">1:1 문의</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" style="color:yellowgreen">
                         <i class="fa fa-tasks"></i>
                         <span>계정 관리</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="/admin/account/list" style="color:tomato">유저 리스트</a></li>
-                        <li><a href="/admin/account/report" style="color:darkkhaki">신고처리</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
+                        <ul class="sub">
+                            <li><a href="/admin/account/list" style="color:tomato">유저 리스트</a></li>
+                            <li><a href="/admin/account/report" style="color:darkkhaki">신고처리</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
                         <i class="fa fa-cogs"></i>
                         <span>설정</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="/admin/new_pw">비밀번호 변경</a></li>
-                        <li><a href="/admin/settings">기타 설정</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="/" id="logout" style="color:dodgerblue" id="logout">
+                        <ul class="sub">
+                            <li><a href="/admin/new_pw">비밀번호 변경</a></li>
+                            <li><a href="/admin/settings">기타 설정</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/" id="logout" style="color:dodgerblue" id="logout">
                         <i class="fa fa-sign-out"></i>
                         <span>로그아웃</span>
                     </a>
-                </li>
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-    <!--sidebar end-->
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
 
-    <!-- **********************************************************************************************************************************************************
+        <!-- **********************************************************************************************************************************************************
   MAIN CONTENT
   *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-    <section id="main-content">
-        <section class="wrapper">
-            <div align='center'><a href="/admin" class="logo"><b>SHOW HOT _Admin</b></a></div>
-            <div class="container-fluid">
-                <br>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="/admin_hotdeal">핫딜</a>
-                    </li>
-                    <li></li>
-                </ol>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>추천 수</th>
-                                <th>제목</th>
-                                <th>링크</th>
-                                <th>내용</th>
-                                <th>등록일</th>
-                                <th>삭제</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
-                            <% hotdeal.forEach((item)=>{ %>
-                            <tr>
-                                <td class="updown">
-                                    <p><a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a></p>
-                                    <%= item.Hotdeal_Score %>
-                                    <p><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a></p>
-                                </td>
-                                <td valgin='bottom' class='clickable-row' data-href="/admin/board/hotdeal/<%= item.Hotdeal_ID %>">
-                                    <%= item.Hotdeal_Title %>
-                                </td>
-                                <td>
-                                    <%= item.Hotdeal_Link %>
-                                </td>
-                                <td>
-                                    <%= item.Hotdeal_Content %>
-                                </td>
-                                <td>
-                                    <%= item.Hotdeal_Date %>
-                                </td>
-                                <td><form method="post" action="/admin/board/hotdeal/delete/<%= item.Hotdeal_ID %>"><input type="hidden" name="id" value="<%= item.Hotdeal_ID %>"><input type="submit" value="삭제"></form></td>
-                            </tr>
-                            <%})%>
-                            </tbody>
-                        </table>
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <div align='center'><a href="/admin" class="logo"><b>SHOW HOT _Admin</b></a></div>
+                <div class="container-fluid">
+                    <br>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <i class="fa fa-desktop" style="color:deeppink;"></i><a href="#" style="color:deeppink;">핫딜 관리</a>
+                        </li>
+                    </ol>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>추천 수</th>
+                                        <th>제목</th>
+                                        <th>링크</th>
+                                        <th>내용</th>
+                                        <th>등록일</th>
+                                        <th>삭제</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
+                                    <% hotdeal.forEach((item)=>{ %>
+                                        <tr>
+                                            <td class="updown">
+                                                <p><a href="#"><i class="fa fa-caret-up" aria-hidden="true"></i></a></p>
+                                                <%= item.Hotdeal_Score %>
+                                                    <p><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a></p>
+                                            </td>
+                                            <td valgin='bottom' class='clickable-row' data-href="/admin/board/hotdeal/<%= item.Hotdeal_ID %>">
+                                                <%= item.Hotdeal_Title %>
+                                            </td>
+                                            <td>
+                                                <%= item.Hotdeal_Link %>
+                                            </td>
+                                            <td>
+                                                <%= item.Hotdeal_Content %>
+                                            </td>
+                                            <td>
+                                                <%= item.Hotdeal_Date %>
+                                            </td>
+                                            <td>
+                                                <form method="post" action="/admin/board/hotdeal/delete/<%= item.Hotdeal_ID %>"><input type="hidden" name="id" value="<%= item.Hotdeal_ID %>"><input type="submit"
+                                                        value="삭제"></form>
+                                            </td>
+                                        </tr>
+                                        <%})%>
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="/admin/board/hotdeal/insert" class="btn btn-board btn-theme03">핫딜 작성하기</a>
                     </div>
-                    <a href="/admin/board/hotdeal/insert" class="btn btn-board btn-theme03">핫딜 작성하기</a>
                 </div>
-            </div>
-            <!--/row -->
+                <!--/row -->
+            </section>
         </section>
-    </section>
 
-    <!--main content end-->
-    <!--footer start-->
-    <footer class="site-footer">
-        <div class="text-center">
-            Copyright © Your Website 2017
-            <a href="/overview" class="go-top">
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                Copyright © Your Website 2017
+                <a href="/overview" class="go-top">
                 <i class="fa fa-angle-up"></i>
             </a>
-        </div>
-    </footer>
-    <!--footer end-->
-</section>
-<script>
-  $(document).ready(function () {
-    $("#logout").on("click", function(e) {
-      //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-      if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-        e.preventDefault();
-      }
-    });
-  });
-</script>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
 
-<!-- js placed at the end of the document so the pages load faster -->
-<!-- js placed at the end of the document so the pages load faster -->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery-3.2.1.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="/assets/js/jquery.scrollTo.min.js"></script>
-<script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-<script src="/assets/js/jquery.sparkline.js"></script>
-<script>
-  $(document).ready(function () {
-    $("#logout").on("click", function (e) {
-      //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-      if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-        e.preventDefault();
-      }
-    });
-  });
-</script>
+    </script>
 
-<!--common script for all pages-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery-3.2.1.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="/assets/js/jquery.scrollTo.min.js"></script>
-<script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-<script src="/assets/js/jquery.sparkline.js"></script>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/assets/js/jquery.sparkline.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
 
+    </script>
 
-<!--common script for all pages-->
-<script src="/assets/js/common-scripts.js"></script>
-
-<script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
-<script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
-
-<!--script for this page-->
-<script src="/assets/js/sparkline-chart.js"></script>
-<script src="/assets/js/zabuto_calendar.js"></script>
-<!-- Bootstrap core JavaScript-->
-<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Page level plugin JavaScript-->
-<script src="/vendor/datatables/jquery.dataTables.js"></script>
-<script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="/js/sb-admin.min.js"></script>
-<!-- Custom scripts for this page-->
-<script src="/js/sb-admin-datatables.min.js"></script>
+    <!--common script for all pages-->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/assets/js/jquery.sparkline.js"></script>
 
 
+    <!--common script for all pages-->
+    <script src="/assets/js/common-scripts.js"></script>
 
-<script type="application/javascript">
-  $(document).ready(function () {
-    $("#date-popover").popover({ html: true, trigger: "manual" });
-    $("#date-popover").hide();
-    $("#date-popover").click(function (e) {
-      $(this).hide();
-    });
+    <script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
 
-    $("#my-calendar").zabuto_calendar({
-      action: function () {
-        return myDateFunction(this.id, false);
-      },
-      action_nav: function () {
-        return myNavFunction(this.id);
-      },
-      ajax: {
-        url: "show_data.php?action=1",
-        modal: true
-      },
-      legend: [
-        { type: "text", label: "특별 이벤트", badge: "00" },
-        { type: "block", label: "평범 이벤트", }
-      ]
-    });
-  });
-  $(document).ready(function($) {
-    $(".clickable-row").click(function() {
-      window.location = $(this).data("href");
-    });
-  });
+    <!--script for this page-->
+    <script src="/assets/js/sparkline-chart.js"></script>
+    <script src="/assets/js/zabuto_calendar.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="/js/sb-admin-datatables.min.js"></script>
 
-  function myNavFunction(id) {
-    $("#date-popover").hide();
-    var nav = $("#" + id).data("navigation");
-    var to = $("#" + id).data("to");
-    console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-  }
-</script>
+
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#date-popover").popover({ html: true, trigger: "manual" });
+            $("#date-popover").hide();
+            $("#date-popover").click(function (e) {
+                $(this).hide();
+            });
+
+            $("#my-calendar").zabuto_calendar({
+                action: function () {
+                    return myDateFunction(this.id, false);
+                },
+                action_nav: function () {
+                    return myNavFunction(this.id);
+                },
+                ajax: {
+                    url: "show_data.php?action=1",
+                    modal: true
+                },
+                legend: [
+                    { type: "text", label: "특별 이벤트", badge: "00" },
+                    { type: "block", label: "평범 이벤트", }
+                ]
+            });
+        });
+        $(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+
+        function myNavFunction(id) {
+            $("#date-popover").hide();
+            var nav = $("#" + id).data("navigation");
+            var to = $("#" + id).data("to");
+            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+
+    </script>
 
 
 </body>
