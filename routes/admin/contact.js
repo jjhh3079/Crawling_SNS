@@ -34,8 +34,6 @@ router.get('/notice/delete/:id',passport.authenticate('jwt',{session:false}),(re
 });
 // 공지사항 작성
 router.post('/notice/insert',passport.authenticate('jwt',{session:false}),controller.notice_insert);
-
-
 router.post('/notice/delete/:id',passport.authenticate('jwt',{session:false}),controller.notice_delete);
 
 router.get('/question',passport.authenticate('jwt',{session:false}),controller.question_list);

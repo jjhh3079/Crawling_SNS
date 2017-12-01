@@ -1,14 +1,6 @@
 const cwd = process.cwd();
 const db=require(cwd+'/config/db');
 
-exports.question_form=(req,res)=>{
-  if(req.user.User_isAdmin===0){
-    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
-  }else {
-    res.render('admin/contact/questionwrite');
-  }
-};
-
 exports.qna_form=(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
@@ -112,21 +104,32 @@ exports.question_list=(req,res)=>{
   if(req.user.User_isAdmin===0){
      return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else{
-    db.query('select * from question where Question_ID_Answer=null',(err,results)=>{
+    db.query('select * from question where Question_ID_Answer is NULL',(err,results)=>{   //ID값을 받아오지않고 아이디값을 받아오는 식으로
       if(err) console.log(err);
+      console.log(results);
       res.render('admin/contact/question',{question:results});
     })
   }
 };
-exports.question_answer_insert=(req,res)=>{
+exports.question_form=(req,res)=>{
   const question_id=req.params.id;
-  const {question_title,question_content}=req.body;
+  if(req.user.User_isAdmin===0){
+    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+  }else {
+      db.query('select * from question where Question_ID=?',[question_id],(err,results)=>{
+        if(err) console.log(err);
+        res.render('admin/contact/question_write',{question:results});
+      })
+  }
+};
+exports.question_answer_insert=(req,res)=>{
+  const {question_id,question_title,question_content}=req.body;
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
     db.query('insert into question (Question_Title,Question_Content,Question_ID_Answer) values (?,?,?)', [question_title, question_content, question_id], (err) => {
       if (err) console.log(err);
-      res.redirect('admin/contact/admin_question');
+      res.redirect('/admin/contact/question');
     })
   }
 };

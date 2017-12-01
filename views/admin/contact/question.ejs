@@ -145,7 +145,7 @@
                             <span>이벤트 관리</span>
                         </a>
                     </li>
-    
+
                     <li class="sub-menu">
                         <a href="javascript:;" style="color:darkseagreen">
                             <i class="fa fa-th"></i>
@@ -216,14 +216,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td><button class="btn btn-theme02"><a href="/admin/contact/admin_question/form" style="color:black">답변하기</a></button></td>
-                                    </tr>
+                                    <% question.forEach((item)=>{ %>
+                                        <tr>
+                                            <td>
+                                                <%= item.Question_ID %>
+                                            </td>
+                                            <td>
+                                                <%= item.Question_Title %>
+                                            </td>
+                                            <td>
+                                                <%= item.User_ID %>
+                                            </td>
+                                            <td>
+                                                <%= item.Question_Date %>
+                                            </td>
+                                            <td><form method="get" action="/admin/contact/question/form/<%= item.Question_ID %>"><button>답변</button></form></td>
+                                        </tr>
+                                        <%})%>
                                 </tbody>
                             </table>
                         </div>
@@ -259,14 +268,14 @@
     <!--common script for all pages-->
     <script src="/assets/js/common-scripts.js"></script>
     <script>
-			$(document).ready(function () {
-				$("#logout").on("click", function(e) {
-                    //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-					if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-						e.preventDefault();
-					}
-				});
-			});
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
     </script>
 
     <script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
