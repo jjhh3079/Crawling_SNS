@@ -18,13 +18,18 @@ exports.event_view=(req,res)=>{
     db.query('select * from comment,user where comment.User_ID=user.User_ID and Board_Name=0 and Board_ID=?',[event_id],(err,results)=>{
       if(err) console.log(err);
       event_comment=results;
-      res.render('user/event/event_click',{
-        event:event,
-        event_comment:event_comment
+    //밑에 쿼리문은 사용자의 Email을 넘겨줘서 사용자 자신의 댓글에 삭제버튼 여부를 구현한 것(수일)
+    db.query('select User_Email from user where User_ID = ?',[req.user.User_ID],(err,results)=>{
+        if(err) console.log(err);
+        user_mail = results;
+        res.render('user/event/event_click',{
+            event:event,
+            event_comment:event_comment,
+            user_mail:user_mail
+        });
       });
     });
-
-  })
+  });
 };
 
 exports.event_up=(req,res)=>{

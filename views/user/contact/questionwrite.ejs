@@ -40,6 +40,10 @@
         .container-fluid ol {
             font-size: 200%;
         }
+        .btn{
+            margin-top:1%;
+            right:10%;
+        }
     </style>
 </head>
 
@@ -124,73 +128,72 @@
         </div>
         <aside>
 
-            <div id="sidebar" class="nav-collapse ">
+            <div id="sidebar" class="nav-collapse">
                 <!--logo start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <h3 class="centered" style="color:bisque">Admin</h3>
+                    <h3 class="centered" style="color:bisque">UserName</h3>
                     <li class="mt">
-                        <a class="active" href="/admin/account/admin_overview" style="color:#20B38E">
-                                                         <i class="fa fa-dashboard"></i>
-                                                         <span>Main</span>
-                                                     </a>
+                        <a href="/main">
+                             <i class="fa fa-dashboard" style="color:#20B38E"></i>
+                             <span style="color:#20B38E">Main</span>
+                         </a>
                     </li>
 
                     <li class="sub-menu">
-                        <a href="/admin/board/admin_hotdeal" style="color:deeppink;">
-                                                         <i class="fa fa-desktop"></i>
-                                                         <span>핫딜 관리</span>
-                                                     </a>
-                    </li>
+                        <a href="/hotdeal" style="color:deeppink;">
+                             <i class="fa fa-desktop"  style="color:deeppink;"></i>
+                             <span>핫딜 </span>
+                         </a>
 
-                    <li class="sub-menu">
-                        <a href="/admin/board/admin_event" style="color:darkorange">
-                                                         <i class=" fa fa-bar-chart-o"></i>
-                                                         <span>이벤트 </span>
-                                                     </a>
-                        <!-- <ul class="sub">
-                                                         <li><a  href="calendar.html">Calendar</a></li>
-                                                         <li><a  href="gallery.html">Gallery</a></li>
-                                                         <li><a  href="todo_list.html">Todo List</a></li>
-                                                     </ul> -->
-                    </li>
 
-                    <li class="sub-menu">
-                        <a href="javascript:;" style="color:darkseagreen">
-                                                         <i class="fa fa-th"></i>
-                                                         <span>문의</span>
-                                                     </a>
-                        <ul class="sub">
-                            <li><a href="/contact/notice" style="color:turquoise">공지사항</a></li>
-                            <li><a href="/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
-                            <li><a href="/contact/question" style="color:lightseagreen">1:1 문의</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="/admin/account/admin_report" style="color:yellowgreen">
-                                                         <i class="fa fa-tasks"></i>
-                                                         <span>계정 관리</span>
-                                                     </a>
-                        <ul class="sub">
-                            <li><a href="/admin/account/user_list" style="color:tomato">유저 리스트</a></li>
-                            <li><a href="/admin/account/report" style="color:darkkhaki">신고처리</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                                                         <i class="fa fa-cogs"></i>
-                                                         <span>설정</span>
-                                                     </a>
-                        <ul class="sub">
-                            <li><a href="/new_pw">비밀번호 변경</a></li>
-                            <li><a href="/admin_settings">기타 설정</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="/" id="logout" style="color:dodgerblue" id="logout">
-                                                         <i class="fa fa-sign-out"></i>
-                                                         <span>로그아웃</span>
-                                                     </a>
-                    </li>
+                        <li class="sub-menu">
+                            <a href="/event" style="color:darkorange">
+                             <i class=" fa fa-bar-chart-o" style="color:darkorange"></i>
+                             <span>이벤트 </span>
+                         </a>
+                            <!-- <ul class="sub">
+                             <li><a  href="calendar.html">Calendar</a></li>
+                             <li><a  href="gallery.html">Gallery</a></li>
+                             <li><a  href="todo_list.html">Todo List</a></li>
+                         </ul> -->
+                        </li>
+                        <li class="sub-menu">
+                            <a href="/tracking" style="color:darkseagreen">
+                             <i class="fa fa-tasks" style="color:darkseagreen"></i>
+                             <span>배송조회</span>
+                         </a>
+                            <!-- <ul class="sub">
+                             <li><a  href="form_component.html">Form Components</a></li>
+                         </ul> -->
+                        </li>
+                        <li class="sub-menu">
+                            <a class="active" href="javascript:;" style="color:skyblue">
+                             <i class="fa fa-th" style="color:skyblue"></i>
+                             <span>문의</span>
+                         </a>
+                            <ul class="sub">
+                                <li><a href="/contact/notice" style="color:turquoise">공지사항</a></li>
+                                <li><a href="/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
+                                <li><a href="/contact/question" style="color:lightseagreen">1:1 문의</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;" style="color:yellowgreen">
+                             <i class="fa fa-cogs" style="color:yellowgreen"></i>
+                             <span>설정</span>
+                         </a>
+                            <ul class="sub">
+                                <li><a href="/new_pw" style="color:tomato">비밀번호 변경</a></li>
+                                <li><a href="/settings" style="color:darkkhaki">기타 설정</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="/" id="logout">
+                             <i class="fa fa-sign-out" style="color:dodgerblue"></i>
+                             <span style="color:dodgerblue">로그아웃</span>
+                         </a>
+                        </li>
                 </ul>
                 <!-- sidebar menu end-->
             </div>
@@ -221,19 +224,17 @@
                                         <label class="col-sm-2 col-lg-2 control-label badge">제목</label>
                                         <div class="form-group">
 
-                                            <div class="col-sm-9 col-md-10 col-lg-10">
+                                            <div class="col-sm-11 col-md-11 col-lg-11">
                                                 <input type="text" class="form-control" name="notice_title">
                                             </div>
                                         </div>
                                         <label class="col-lg-2 col-sm-2 control-label badge">내용</label>
                                         <br>
                                         <div class="form-group">
-                                            <div class="col-sm-9 col-md-10 col-lg-10">
+                                            <div class="col-sm-11 col-md-11 col-lg-11">
                                                 <textarea class="form-control" rows="18" name="notice_content"></textarea>
                                             </div>
-                                            <div class="col-sm-12 col-md-3 col-lg-3">
-                                                <button type="submit" class="col-sm-9 col-md-12 col-lg-12 btn btn-lg btn-theme03">작성하기</button>
-                                            </div>
+                                            <button type="submit" class="col-sm-2 col-md-2 pull-right col-lg-2 btn btn-lg btn-theme03">작성하기</button>
                                         </div>
                                     </form>
                                 </div>

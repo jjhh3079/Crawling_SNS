@@ -10,14 +10,19 @@ exports.hotdeal_list=(req,res)=>{
 };
 exports.hotdeal_view=(req,res)=>{
   const hotdeal_id=req.params.id;
-  let hotdeal,hotdeal_comment;
+  let hotdeal,hotdeal_comment,user_mail;
   db.query('select * from hotdeal where Hotdeal_ID=?',[hotdeal_id],(err,results)=>{
     if(err) console.log(err);
     hotdeal=results;
     db.query('select * from comment,user where comment.User_ID=user.User_ID and Board_Name=1 and Board_ID=?',[hotdeal_id],(err,results)=>{
       if(err) console.log(err);
       hotdeal_comment=results;
-      res.render('user/hotdeal/hotdeal_click',{hotdeal:hotdeal,hotdeal_comment:hotdeal_comment});
+      //밑에 쿼리문은 사용자의 Email을 넘겨줘서 사용자 자신의 댓글에 삭제버튼 여부를 구현한 것(수일)
+          db.query('select User_Email from user where User_ID = ?',[req.user.User_ID],(err,results)=>{
+          if(err) console.log(err);
+          user_mail = results;
+          res.render('user/hotdeal/hotdeal_click',{hotdeal:hotdeal,hotdeal_comment:hotdeal_comment,user_mail:user_mail});
+      });
     });
 
   })
@@ -84,11 +89,12 @@ exports.hotdeal_comment=(req,res)=>{
 
 exports.hotdeal_comment_delete=(req,res)=>{
   const hotdeal_id = req.params.id;
-  const comment_id = req.params.comment_id;
+  const comment_id = req.body.comment_id;
   const user_id=req.user.User_ID;
+  console.log(comment_id);
   db.query('delete from comment where User_ID=? and Comment_ID=?',
     [user_id,comment_id],(err)=>{
       if(err) console.log(err);
-      res.render('user/hotdeal/hotdeal'+hotdeal_id)
+      res.redirect('/hotdeal/'+hotdeal_id)
     });
 };
