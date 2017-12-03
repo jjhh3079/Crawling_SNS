@@ -217,30 +217,28 @@
                     </ol>
                     <div class="card-body">
                         <div class="row mt">
-                            <div class="col-lg-8">
-                                <div class="form-panel">
-                                    <h4 class="mb"><i class="fa fa-angle-right"></i>1:1 문의 </h4>
-                                    <form class="form-horizontal style-form" method="post">
-                                        <label class="col-sm-2 col-lg-2 control-label badge">제목</label>
-                                        <div class="form-group">
-
-                                            <div class="col-sm-11 col-md-11 col-lg-11">
-                                                <input type="text" class="form-control" name="notice_title">
-                                            </div>
-                                        </div>
-                                        <label class="col-lg-2 col-sm-2 control-label badge">내용</label>
-                                        <br>
-                                        <div class="form-group">
-                                            <div class="col-sm-11 col-md-11 col-lg-11">
-                                                <textarea class="form-control" rows="18" name="notice_content"></textarea>
-                                            </div>
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="form-panel form-horizontal style-form" style="background-color:lightgray">
+                                <div class="col-xs-4 col-sm-4 col-lg-12 col-md-4 badge" style="height:40px; width:200px; font-size:25px;">1:1 문의하기
+                                </div>
+                                <div class="col-lg-2" style="font-size:20px; float:unset; margin-top:10px;">&nbsp</div>
+                                <form name=form1 method=POST>
+                                    <div style="font-size:25px;">
+                                        <label class="col-lg-2"> 제목 : </label>
+                                        <input name="question_title" class="col-lg-10 pull-left form-control" type="text" placeholder="제목을 입력하세요">
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="form-group ">
+                                        <div class="col-lg-12">
+                                            <textarea class="form-control" style="font-size:20px;" rows="5" name="question_content"></textarea>
                                             <button type="submit" class="col-sm-2 col-md-2 pull-right col-lg-2 btn btn-lg btn-theme03">작성하기</button>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
-                            <!-- col-lg-12-->
                         </div>
+                    </div>
                         <!-- /row -->
                     </div>
                 </div>

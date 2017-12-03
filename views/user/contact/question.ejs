@@ -219,7 +219,7 @@
                     <tr>
                       <th>번호</th>
                       <th>제목</th>
-                      <th>작성자</th>
+                      <th>답변 상태</th>
                       <th>등록일</th>
                     </tr>
                   </thead>
@@ -229,7 +229,12 @@
                     <tr class='clickable-row' data-href="/contact/question/<%= item.Question_ID %>">
                         <td><%= item.Question_ID %></td>
                         <td><%= item.Question_Title %></td>
-                        <td><%= item.User_ID %></td>
+                        <% if(item.Question_ID_Answer == null) {%>
+                        <% console.log(item.Question_ID_Answer)%>
+                        <td>처리중</td>
+                        <%} else {%>
+                        <td>답변 완료</td>
+                        <% } %>
                         <td><%= item.Question_Date %></td>
                     </tr>
                     <%})%>

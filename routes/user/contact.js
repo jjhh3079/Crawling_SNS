@@ -10,6 +10,7 @@ router.get('/qna',controller.qna_list);
 router.get('/qna/:id',controller.qna_view);
 
 router.get('/qnawrite',passport.authenticate('jwt',{session:false}),controller.qna_list);
+
 router.get('/question',passport.authenticate('jwt',{session:false}),controller.question_list);
 router.get('/question_write',passport.authenticate('jwt',{session:false}),controller.question_write);
 router.get('/question/:id',passport.authenticate('jwt',{session:false}),controller.question_view);
@@ -21,5 +22,6 @@ router.get('/question/:id',passport.authenticate('jwt',{session:false}),controll
 router.post('/notice/comment',passport.authenticate('jwt',{session:false}),controller.notice_comment);
 router.post('/notice/comment/delete/:id',passport.authenticate('jwt',{session:false}),controller.notice_comment_delete);
 
-
+//1:1문의 입력 추가
+router.post('/question_write',passport.authenticate('jwt',{session:false}),controller.question_insert);
 module.exports=router;

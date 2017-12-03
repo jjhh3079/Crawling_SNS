@@ -73,15 +73,22 @@ exports.qna_view=(req,res)=>{
 // TODO : answer 처리
 exports.question_list=(req,res)=>{
   console.log(req.user);
-  db.query('select Question_ID,Question_Title,Question_Date from question where User_ID=?',[req.user.User_ID],(err,results)=>{
+  db.query('select Question_ID,Question_Title,Question_Date,Question_ID_Answer from question where User_ID=?',[req.user.User_ID],(err,results)=>{
     res.render('user/contact/question',{question:results});
   })
 };
 exports.question_view=(req,res)=>{
-  const {question_id,user_id}=req.body;
+  const question_id=req.params.id;
+  const user_id = req.user.User_ID;
   db.query('select * from question where Question_ID=? and User_ID=?',[question_id,user_id],(err,results)=>{
     if(err) console.log(err);
-    res.render('user/contact/question_view',{question:results});
+    const question = results;
+    db.query('select * from question where Question_ID_Answer = ?',[question_id],(err,results)=>{
+        if(err) console.log(err);
+        const answer = results;
+        console.log(answer);
+        res.render('user/contact/questionview',{question:question,answer:answer});
+    });
   })
 };
 exports.question_write=(req,res)=>{
@@ -90,6 +97,15 @@ exports.question_write=(req,res)=>{
         if(err) console.log(err);
         res.render('user/contact/questionwrite');
     })
+};
+
+exports.question_insert=(req,res)=>{
+    const {question_title,question_content}=req.body;
+    const user_id = req.user.User_ID;
+    db.query('insert into question(User_ID,Question_Title,Question_Content) values (?,?,?)',[user_id,question_title,question_content],(err,results)=>{
+        if(err) console.log(err);
+    res.redirect('/contact/question');
+});
 };
 
 // 수정할 부분
