@@ -49,6 +49,9 @@
         .aaa {
             width: 20%;
         }
+        input[type="password"]{
+            font-family:sans-serif;
+        }
     </style>
 </head>
 
@@ -235,7 +238,7 @@
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <label for="exampleInputPassword1">이전 비밀번호 확인</label>
-                                            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="비밀번호">
+                                            <input class="form-control" name="old_pw" type="password" placeholder="비밀번호">
                                         </div>
                                     </div>
                                 </div>
@@ -244,7 +247,7 @@
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <label for="exampleInputPassword1">새 비밀번호 작성</label>
-                                            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="비밀번호">
+                                            <input class="form-control" name="new_pw" type="password" placeholder="비밀번호">
                                         </div>
                                     </div>
                                 </div>
@@ -252,14 +255,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <label for="exampleConfirmPassword">비밀번호 확인</label>
-                                            <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="비밀번호 확인">
+                                            <input class="form-control" name="new_pw_verify" type="password" placeholder="비밀번호 확인">
                                         </div>
                                         <!--<div class="login-fail">비밀번호가 일치하지 않습니다.</div>-->
                                     </div>
                                 </div>
                                 <br/>
                                 <div class="aaa">
-                                    <a class="btn btn-primary btn-block btn-theme01" href="/main">비밀 번호 변경</a>
+                                    <button class="btn btn-primary btn-block btn-theme01" type="submit">비밀 번호 변경</button>
                                 </div>
                             </form>
                         </div>
