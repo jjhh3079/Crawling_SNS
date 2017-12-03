@@ -6,16 +6,19 @@ const hasher = bkfd2Password();
 const config = require(cwd+'/config/secret');
 
 exports.new_pw_page=(req,res)=>{
+  const user_email=req.user.User_Email;
+  const user_name=req.user.User_Name;
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
-    res.render('admin/new_pw');
+    res.render('admin/new_pw',{useremail:user_email,username:user_name});
   }
 };
 
 exports.new_pw=(req,res)=>{
   const {old_pw,new_pw,new_pw_verify}=req.body;
   // 패스워드 중복검사
+  console.log(old_pw,new_pw,new_pw_verify);
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {

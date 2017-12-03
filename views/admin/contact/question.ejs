@@ -212,11 +212,12 @@
                                         <th>제목</th>
                                         <th>작성자</th>
                                         <th>등록일</th>
-                                        <th>답변하기</th>
+                                        <th>상태</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% question.forEach((item)=>{ %>
+                                    <% question.forEach((item)=>{
+                                        if(item.Question_ID_Answer == null){ %>
                                         <tr>
                                             <td>
                                                 <%= item.Question_ID %>
@@ -230,9 +231,9 @@
                                             <td>
                                                 <%= item.Question_Date %>
                                             </td>
-                                            <td><form method="get" action="/admin/contact/question/form/<%= item.Question_ID %>"><button>답변</button></form></td>
+                                            <td><form method="get" action="/admin/contact/question/form/<%= item.Question_ID %>"><button>답변하기</button></form></td>
                                         </tr>
-                                        <%})%>
+                                        <%}})%>
                                 </tbody>
                             </table>
                         </div>

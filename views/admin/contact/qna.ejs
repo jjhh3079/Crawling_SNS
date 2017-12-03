@@ -211,8 +211,8 @@
                                             <form method="get" action="/admin/contact/qna/delete/<%= item.Qna_ID %>"> 
                                             <li>
                                                 <input type="hidden" value="<%= item.Qna_ID %>">
-                                                <a href="#" class="panel-title"><%= item.Qna_Title %></a>
-                                                <p class="card-body" style="display: none;"><%= item.Qna_Content %></p>
+                                                <div class="alert alert-success" style="padding-left:20px"><span href="#" class="panel-title"><%= item.Qna_Title %></span>
+                                                <p class="card-body alert alert-warning" style="display: none;"><%= item.Qna_Content %></p></div>
                                                 <input type="submit" value="삭제"> 
                                             </li>
                                             </form> 
@@ -320,7 +320,7 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
 
-        $(".faq a").click(function() {
+        $(".faq span").click(function() {
             $(this).next().slideToggle("fast").parent().siblings().children("p").hide();
             return false;
         });

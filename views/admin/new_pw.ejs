@@ -212,23 +212,21 @@
                         <div class="card-header" align=center>비밀번호 변경 </div>
                         <div class="card-body">
 
-                            <form method="post">
+                            <form method="post" action="/admin/new_pw">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">E-mail : </label>
-                                    <label for="exampleInputEmail1">food869@naver.com</label>
+                                    <label for="exampleInputEmail1"><%=useremail%></label>
                                     <br/><br/>
                                     <label for="exampleInputEmail1">이름 : </label>
-                                    <label for="exampleInputEmail1">Roh soo il</label>
+                                    <label for="exampleInputEmail1"><%=username%></label>
                                     <br/>
-                                    <!--<a class="btn btn-primar" href="">중복확인</a>
-              <div class="login-fail">이미 가입되어있는 이메일입니다.</div>-->
                                 </div>
                                 <hr>
                                 <div class="form-group">
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <label for="exampleInputPassword1">이전 비밀번호 확인</label>
-                                            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="비밀번호">
+                                            <input class="form-control" name="old_pw" type="password" placeholder="비밀번호">
                                         </div>
                                     </div>
                                 </div>
@@ -237,7 +235,7 @@
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <label for="exampleInputPassword1">새 비밀번호 작성</label>
-                                            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="비밀번호">
+                                            <input class="form-control" name="new_pw" type="password" placeholder="비밀번호">
                                         </div>
                                     </div>
                                 </div>
@@ -245,14 +243,14 @@
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <label for="exampleConfirmPassword">비밀번호 확인</label>
-                                            <input class="form-control" id="exampleConfirmPassword" type="password" placeholder="비밀번호 확인">
+                                            <input class="form-control" name="new_pw_verify" id="exampleConfirmPassword" type="password" placeholder="비밀번호 확인">
                                         </div>
                                         <!--<div class="login-fail">비밀번호가 일치하지 않습니다.</div>-->
                                     </div>
                                 </div>
                                 <br/>
                                 <div class="aaa">
-                                    <a class="btn btn-primary btn-block btn-theme01" href="/overview">비밀 번호 변경</a>
+                                    <input type="submit" alt="비밀번호 변경"/>
                                 </div>
                             </form>
                         </div>
@@ -275,7 +273,6 @@
         <!--footer end-->
     </section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/jquery-3.2.1.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
@@ -287,6 +284,16 @@
 
     <!--common script for all pages-->
     <script src="/assets/js/common-scripts.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
     <script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
@@ -315,7 +322,6 @@
             });
         });
     </script>
-
 
     <script type="application/javascript">
         $(document).ready(function () {

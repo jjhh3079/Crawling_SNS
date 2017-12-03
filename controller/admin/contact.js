@@ -104,14 +104,13 @@ exports.qna_delete=(req,res)=>{
     })
   }
 };
-
-exports.question_list=(req,res)=>{
+// select Question_ID from question where Question_ID_ANSWER = (select Qusetion_ID from  question)
+exports.question_list=(req,res)=>{      //제가 빡대가리입니다.
   if(req.user.User_isAdmin===0){
      return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else{
-    db.query('select * from question where Question_ID_Answer is NULL',(err,results)=>{   //ID값을 받아오지않고 아이디값을 받아오는 식으로
+    db.query('select * from question',(err,results)=>{   //ID값을 받아오지않고 아이디값을 받아오는 식으로
       if(err) console.log(err);
-      console.log(results);
       res.render('admin/contact/question',{question:results});
     })
   }
@@ -134,7 +133,9 @@ exports.question_answer_insert=(req,res)=>{
   }else {
     db.query('insert into question (Question_Title,Question_Content,Question_ID_Answer) values (?,?,?)', [question_title, question_content, question_id], (err) => {
       if (err) console.log(err);
+      db.query('update question set Question_ID_Answer=1 where Question_ID=?',[question_id],(err,result)=>{
       res.redirect('/admin/contact/question');
+      })
     })
   }
 };
