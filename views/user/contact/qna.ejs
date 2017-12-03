@@ -211,31 +211,17 @@
                 </ol>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>번호</th>
-                                <th>제목</th>
-                                <th>등록일</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
+                        <ul class="faq mt">   
                             <% qna.forEach((item)=>{ %>
-                            <tr>
-                                <td>
-                                    <%= item.Qna_ID %>
-                                </td>
-                                <td class='clickable-row' data-href="/contact/qna/<%=item.Qna_ID%>">
-                                    <%= item.Qna_Title %>
-                                </td>
-                                <td>
-                                    <%= item.Qna_Date %>
-                                </td>
-                            </tr>
-                            <%})%>
-                            </tbody>
-                        </table>
+                                <form method="get" action="/admin/contact/qna/delete/<%= item.Qna_ID %>"> 
+                                <li>
+                                    <input type="hidden" value="<%= item.Qna_ID %>">
+                                    <div class="alert alert-success" style="padding-left:20px"><span href="#" class="panel-title"><%= item.Qna_Title %></span>
+                                    <p class="card-body alert alert-warning" style="display: none;"><%= item.Qna_Content %></p></div>
+                                </li>
+                                </form> 
+                                <%})%>
+                        </ul>   
                     </div>
                 </div>
             </div>
@@ -336,7 +322,10 @@
     //     $('.clickable-row').addClass('table-hover');    //수정하기
     // });
 
-
+    $(".faq span").click(function() {
+            $(this).next().slideToggle("fast").parent().siblings().children("p").hide();
+            return false;
+        });
   });
 
   function myNavFunction(id) {

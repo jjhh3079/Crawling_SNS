@@ -2,7 +2,7 @@ const cwd = process.cwd();
 const db=require(cwd +'/config/db');
 
 exports.event_list=(req,res)=>{
-  db.query('select Event_ID,Event_Category,Event_Title,Event_Date,Event_Score from event',(err,results)=>{
+  db.query('select * from event',(err,results)=>{
     if(err) console.log(err);
     console.log(results);
     res.render('user/event/event',{event:results});
