@@ -28,9 +28,9 @@ router.get('/find_pw',(req,res)=>{
 //새 비밀번호 찾기페이지
 router.get('/new_pw',passport.authenticate('jwt',{session:false}),controller.new_pw_page);
 
-router.get('/settings',(req,res)=>{
-  res.render('user/settings/settings');
-});
+router.get('/settings',passport.authenticate('jwt',{session:false}),controller.settings_view);
+router.post('/settings',passport.authenticate('jwt',{session:false}),controller.setting);
+
 
 router.get('/email_verify',controller.email_verify);
 

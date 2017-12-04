@@ -223,19 +223,15 @@
                     <div class="col-md-8 col-lg-6">
                         <div class="white-panel">
                             <div class="panel-heading">
-                                <form methd=post>
+                                <form methd='post' action="">
                                     <br>
                                     <div class="pull-left">
                                         <h3><i class="fa fa-tasks"></i><a href="#">주기 설정하기</a></h3>
 
                                     </div>
-                                    <input type="text" /><button class="pull-right btn btn-theme02">설정하기</button><br>
+                                    <input type="text" name=""><button type="submit" class="pull-right btn btn-theme02">설정하기</button><br>
                                     <hr>
                                 </form>
-                                <div class="pull-left">
-                                    <h3><i class="fa fa-thumbs-o-up"></i><i class="fa fa-thumbs-down"></i><a href="#">크롤링 시 추천범위 설정</a>                                        </h3>
-                                </div><br>
-                                <hr>
                             </div>
                         </div>
                         <!--/ White-panel -->
@@ -253,13 +249,21 @@
                         <div class="white-panel">
                             <div class="panel-heading">
                                 <br>
-                                <form methd=post>
+                                <form methd='post' action="">
                                     <br>
                                     <div class="pull-left">
                                         <h3><i class="fa fa-exchange"></i><a href="#">사이트url 설정</a></h3>
 
                                     </div>
-                                    <input type="text" /><button class="pull-right btn btn-theme02">설정하기</button><br>
+                                    <input style="width:50%;" type="text" name="">
+                                    <br>
+                                    <select style="width:40%;color:black" name="" id="">
+                                        <option value="">url1</option>
+                                        <option value="">url2</option>
+                                        <option value="">url3</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-theme02">설정하기</button>
+                                    <br>
                                     <hr>
                                 </form>
                             </div>
@@ -277,49 +281,52 @@
                 <div class="row mt">
                     <div class="col-md-2 col-lg-3"></div>
                     <div class="col-md-8 col-lg-6">
+                       <form method='post' action="">
                         <div class="white-panel">
                             <div class="panel-heading">
-                                <br><img src="assets/img/truck.png" class="pull-left" style="width:50px;">
-                                <div class="pull-left">
-                                    <h2>뽐뿌</h2>
-                                </div>
-                                <div class="pull-right">
-                                    <form><input type="checkbox"></form>
-                                </div><br>
-                                <hr>
-                                <img src="assets/img/truck" alt="사진위치" class="pull-left" style="width:50px;">
-                                <div class="pull-left">
-                                    <h2>클리앙</h2>
-                                </div>
-                                <div class="pull-right">
-                                    <form><input type="checkbox"></form>
-                                </div><br>
-                                <hr>
-                                <img src="assets/img/truck" alt="사진위치" class="pull-left" style="width:50px;">
+                                <br>
                                 <div class="pull-left">
                                     <h2>11번가</h2>
                                 </div>
                                 <div class="pull-right">
-                                    <form><input type="checkbox"></form>
+                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
+                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
                                 </div><br>
                                 <hr>
-                                <img src="assets/img/truck" alt="사진위치" class="pull-left" style="width:50px;">
                                 <div class="pull-left">
-                                    <h2>
-                                        Gmarket</h2>
+                                    <h2>티몬</h2>
                                 </div>
                                 <div class="pull-right">
-                                    <form><input type="checkbox"></form>
+                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
+                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
+                                </div><br>
+                                <hr>
+                                <div class="pull-left">
+                                    <h2>뽐뿌</h2>
+                                </div>
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
+                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
+                                </div><br>
+                                <hr>
+                                <div class="pull-left">
+                                    <h2>쿨엔조이</h2>
+                                </div>
+                                <div class="pull-right">
+                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
+                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
                                 </div><br>
                                 <hr>
                                 <buttom class="col-lg-2-offset-5 btn btn-theme04">적용</buttom>
                             </div>
                         </div>
                         <!--/ White-panel -->
+                        </form>
                     </div>
                     <! --/col-md-12 -->
                 </div>
                 <! -- row -->
+                </div>
             </section>
             <div class="row mt mb">
                 <div class="col-md-12">
