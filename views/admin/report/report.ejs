@@ -227,7 +227,7 @@
                                                 <%= item.Report_ID %>
                                             </td>
                                             <td>
-                                                <%= item.User_ID %>
+                                                <%= item.User_Name %>
                                             </td>
                                             <td>
                                                 <%= item.Report_Content %>
@@ -235,7 +235,7 @@
                                             <td>
                                                 <%= item.Report_Date %>
                                             </td>
-                                            <td><form method="post" action="/admin/account/report/view/<%= item.Report_ID %>"><input type="hidden" name="id" value="<%= item.Notice_ID %>"><input type="submit" value="보기"></form></td>
+                                            <td><form method="post" action="/admin/account/report/view/<%= item.Report_ID %>"><input type="submit" value="보기"></form></td>
                                         </tr>
                                         <%})%>
                                 </tbody>
