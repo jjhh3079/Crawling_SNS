@@ -51,10 +51,12 @@ exports.login=(req,res)=>{
   db.query('select * from user where User_Email=?',[email],(err,result)=>{
     if(err) console.log(err);
     const user = result[0];
-    console.log(user);
     if(!user){
       return res.render('main',{message:"아이디나 비밀번호가 틀렸습니다"});
     }else if(user.User_Email_Verify===1){
+      if(user.User_Blacklist===1){
+        return res.render('main',{message:"밴 당한 사용자입니다."});
+      }
       hasher({password:password,salt:user.User_Salt},(err,pass,salt,hash)=>{
         if(hash === user.User_Hash){
           //로그인 완료
@@ -65,7 +67,6 @@ exports.login=(req,res)=>{
             res.render('admin/overview');
           }else{
             res.redirect('/main')
-            // res.render('admin/overview');
           }
         }else{
           //비밀번호 틀림

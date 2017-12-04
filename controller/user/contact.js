@@ -74,6 +74,8 @@ exports.qna_view=(req,res)=>{
 exports.question_list=(req,res)=>{
   console.log(req.user);
   db.query('select Question_ID,Question_Title,Question_Date,Question_ID_Answer from question where User_ID=?',[req.user.User_ID],(err,results)=>{
+    if(err) console.log(err);
+    console.log(results);
     res.render('user/contact/question',{question:results});
   })
 };

@@ -6,6 +6,7 @@ const nodemailer=require(cwd+'/config/email');
 const email_template=require(cwd+'/config/email_template');
 
 exports.crawling_event_tmon=()=> {
+  console.log("티몬");
   request({
     method: "GET",
     uri: "http://www.ticketmonster.co.kr/event/1",

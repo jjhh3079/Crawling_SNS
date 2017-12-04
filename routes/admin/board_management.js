@@ -1,5 +1,4 @@
 const cwd=process.cwd();
-const db=require(cwd+'/config/db');
 const passport = require(cwd+'/config/passport');
 
 const express = require('express');

@@ -131,9 +131,9 @@ exports.question_answer_insert=(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
-    db.query('insert into question (Question_Title,Question_Content,Question_ID_Answer) values (?,?,?)', [question_title, question_content, question_id], (err) => {
+    db.query('insert into question (Question_Title,Question_Content,Question_ID_Answer) values (?,?,?)', [question_title, question_content, question_id], (err,results) => {
       if (err) console.log(err);
-      db.query('update question set Question_ID_Answer=1 where Question_ID=?',[question_id],(err,result)=>{
+      db.query('update question set Question_ID_Answer=? where Question_ID=?',[results.insertId,question_id],(err,result)=>{
       res.redirect('/admin/contact/question');
       })
     })

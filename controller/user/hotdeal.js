@@ -69,6 +69,7 @@ exports.hotdeal_grade=(req,res)=>{
   const user_id=req.user.User_ID;
   const hotdeal = 1;
   const {grade_score,grade_content} = req.body;
+  console.log("평가내용",grade_content);
   db.query('insert into grade (User_ID,Borad_Name,Board_ID,Grade_Score,Grade_Content) values(?,?,?,?,?)',
     [user_id,hotdeal,hotdeal_id,grade_score,grade_content],(err)=>{
       if(err) console.log(err);

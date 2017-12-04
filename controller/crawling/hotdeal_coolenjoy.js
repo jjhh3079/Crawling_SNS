@@ -8,6 +8,7 @@ const nodemailer=require(cwd+'/config/email');
 const email_template=require(cwd+'/config/email_template');
 
 exports.crawling_hotdeal_coolenjoy=()=>{
+  console.log("쿨엔");
   request({
     method: "GET",
     uri: "http://www.coolenjoy.net/bbs/jirum",

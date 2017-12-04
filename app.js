@@ -57,10 +57,10 @@ const ppomppu=require('./controller/crawling/hotdeal_ppomppu');
 const coolenjoy=require('./controller/crawling/hotdeal_coolenjoy');
 const tmon=require('./controller/crawling/event_tmon');
 
-const s_eleven=  schedule.scheduleJob('*/20 * * * * *',eleven.crawling_event_eleven);
-const s_tmon=  schedule.scheduleJob('*/20 * * * * *',tmon.crawling_event_tmon);
-const s_ppomppu=  schedule.scheduleJob('*/20 * * * * *',ppomppu.crawling_hotdeal_ppomppu);
-const s_coolenjoy=  schedule.scheduleJob('*/20 * * * * *',coolenjoy.crawling_hotdeal_coolenjoy);
+// const s_eleven=  schedule.scheduleJob('* */30 * * * *',eleven.crawling_event_eleven);
+// const s_tmon=  schedule.scheduleJob('* */30 * * * *',tmon.crawling_event_tmon);
+// const s_ppomppu=  schedule.scheduleJob('* */30 * * * *',ppomppu.crawling_hotdeal_ppomppu);
+// const s_coolenjoy=  schedule.scheduleJob('* */30 * * * *',coolenjoy.crawling_hotdeal_coolenjoy);
 
 app.get('/admin/cancel/:id',(req,res)=>{
   const id=req.params.id;

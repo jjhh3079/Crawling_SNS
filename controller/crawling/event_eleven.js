@@ -6,6 +6,7 @@ const db=require(cwd+'/config/db');
 const nodemailer=require(cwd+'/config/email');
 const email_template=require(cwd+'/config/email_template');
 exports.crawling_event_eleven=()=>{
+  console.log("11번가");
   request({
     method: "GET",
     uri: "http://www.11st.co.kr/browsing/NewPlusZonePlace.tmall?method=getEventPage",

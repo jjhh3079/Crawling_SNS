@@ -8,6 +8,7 @@ const nodemailer=require(cwd+'/config/email');
 const email_template=require(cwd+'/config/email_template');
 
 exports.crawling_hotdeal_ppomppu=()=>{
+  console.log("뽐뿌");
   request({
     method: "GET",
     uri: "http://www.ppomppu.co.kr/hot.php?id=ppomppu4",
