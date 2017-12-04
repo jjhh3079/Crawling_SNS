@@ -182,6 +182,18 @@ exports.event_comment_delete=(req,res)=>{
     });
 };
 
+exports.grade_list=(req,res)=>{
+    if(req.user.User_isAdmin===0){
+        return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+    }else {
+        db.query('select A.user_Name, B.* from user as A, grade as B where A.User_ID=B.User_ID;', (err, results) => {
+            if (err) console.log(err);
+            res.render('admin/board/grade', {grade: results});
+        })
+    }
+};
+
+
 // exports.event_update=(req,res)=>{
 //   const event_id=req.params.id;
 //   const {Title,Link,Content}=req.body;

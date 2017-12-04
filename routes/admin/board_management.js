@@ -10,6 +10,7 @@ const controller = require(cwd+'/controller/admin/board_management');
 
 router.get('/event',passport.authenticate('jwt',{session:false}),controller.event_list);
 router.get('/hotdeal',passport.authenticate('jwt',{session:false}),controller.hotdeal_list);
+router.get('/grade',passport.authenticate('jwt',{session:false}),controller.grade_list);
 
 
 router.get('/event/insert',passport.authenticate('jwt',{session:false}),controller.event_insert_form);
