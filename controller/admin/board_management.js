@@ -5,7 +5,7 @@ exports.event_list=(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
-    db.query('select Event_ID,Event_Title,Event_Date from event', (err, results) => {
+    db.query('select Event_ID,Event_Title,Event_Date,Event_Score from event', (err, results) => {
       if (err) console.log(err);
       res.render('admin/board/event', {event: results});
     })

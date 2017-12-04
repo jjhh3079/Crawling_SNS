@@ -208,15 +208,31 @@
                                 <thead>
                                     <tr>
                                         <th>번호</th>
-                                        <th>제목</th>
+                                        <th>신고당한 사람</th>
                                         <th>내용</th>
-                                        <th>등록일</th>
+                                        <td>신고 등록일</td>
                                         <th>확인하기</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
-
+                                    <% report.forEach((item)=>{ %>
+                                        <tr>
+                                            <td>
+                                                <%= item.Report_ID %>
+                                            </td>
+                                            <td>
+                                                <%= item.User_ID %>
+                                            </td>
+                                            <td>
+                                                <%= item.Report_Content %>
+                                            </td>
+                                            <td>
+                                                <%= item.Report_Date %>
+                                            </td>
+                                            <td><form method="post" action="/admin/account/report/view/<%= item.Report_ID %>"><input type="hidden" name="id" value="<%= item.Notice_ID %>"><input type="submit" value="보기"></form></td>
+                                        </tr>
+                                        <%})%>
                                 </tbody>
                             </table>
                         </div>

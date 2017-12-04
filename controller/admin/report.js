@@ -11,3 +11,10 @@ exports.report_list=(req,res)=>{
     })
   }
 };
+exports.report_view=(req,res)=>{
+  const report_id=req.params.id;
+  db.query('select * from report where Report_ID=?',[report_id],(err,results)=>{
+    if(err) console.log(err);
+    res.render('admin/report/report_view',{report:results});
+  })
+}

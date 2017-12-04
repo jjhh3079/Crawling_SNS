@@ -27,7 +27,6 @@ exports.new_pw=(req,res)=>{
     } else {
       hasher({password: old_pw, salt: req.user.User_Salt}, (err, pass, salt, hash) => {
         if (err) console.log(err);
-        if (hash === req.user.User_Hash) {
           hasher({password: new_pw}, (err, pass, salt, hash) => {
             if (err) console.log(err);
             db.query('update user set User_Hash=?,User_Salt=? where User_ID=?', [hash, salt, req.user.User_ID], (err) => {
@@ -35,7 +34,6 @@ exports.new_pw=(req,res)=>{
               return res.render('main', {message: "성공적으로 변경되었습니다. 다시 로그인해주세요"});
             })
           })
-        }
       })
     }
   }
