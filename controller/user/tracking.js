@@ -13,19 +13,14 @@ exports.tracking_insert=(req,res)=>{
   const company= req.body.company;
   const tracking_number = req.body.tracking_number;
   //t_key t_code t_invoice
-  const request_form = {
-    t_key:config.api_key,
-    t_code: company,
-    t_invoice: tracking_number
-  };
-  request.post(
-    {
-      url:"http://info.sweettracker.co.kr/apidoc/api/v1/trackingInfo",
-      from:request_form
-    },(err,httpResponse,body)=>{
+  const url = "http://info.sweettracker.co.kr/apidoc/api/v1/trackingInfo?t_key="+config.api_key+"&t_code="+company+"&t_invoice="+tracking_number;
+  request(url,{json:true},(err,response,body)=>{
     if(err) console.log(err);
-    console.log(httpResponse);
-    console.log(body);
+    const status = body.lastStateDetail.kind;
+    db.query('insert into tracking (User_ID, Tracking_Company, Tracking_Number, Tracking_Status) values (?,?,?,?)',
+      [req.user.User_ID,company,tracking_number,status],(err)=>{
+        if(err) console.log(err);
+        res.redirect('/tracking');
+      });
   });
-
 };

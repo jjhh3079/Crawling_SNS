@@ -223,7 +223,9 @@
                             <thead>
                             <tr>
                                 <th>추천 수</th>
+                                <th>카테고리</th>
                                 <th>제목</th>
+                                <th>이벤트</th>
                                 <th>등록일</th>
                             </tr>
                             </thead>
@@ -236,8 +238,14 @@
                                     <%= item.Event_Score %>
                                     <p><a href="/event/down/<%=item.Event_ID%>"><i class="fa fa-caret-down" aria-hidden="true"></i></a></p>
                                 </td>
+                                <td>
+                                    <%= item.Event_Category%>
+                                </td>
                                 <td class='clickable-row' data-href="/event/<%= item.Event_ID %>" valgin='bottom'>
                                     <%= item.Event_Title %>
+                                </td>
+                                <td>
+                                    <img src="<%= item.Event_Content %>">
                                 </td>
                                 <td>
                                     <%= item.Event_Date %>

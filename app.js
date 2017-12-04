@@ -49,6 +49,62 @@ app.use('/event',event);
 app.use('/hotdeal',hotdeal);
 app.use('/tracking',tracking);
 
+const schedule=require('node-schedule');
+const eleven=require('./controller/crawling/event_eleven');
+const ppomppu=require('./controller/crawling/hotdeal_ppomppu');
+const coolenjoy=require('./controller/crawling/hotdeal_coolenjoy');
+const tmon=require('./controller/crawling/event_tmon');
+
+const s_eleven=  schedule.scheduleJob('*/20 * * * * *',eleven.crawling_event_eleven);
+const s_tmon=  schedule.scheduleJob('*/20 * * * * *',tmon.crawling_event_tmon);
+const s_ppomppu=  schedule.scheduleJob('*/20 * * * * *',ppomppu.crawling_hotdeal_ppomppu);
+const s_coolenjoy=  schedule.scheduleJob('*/20 * * * * *',coolenjoy.crawling_hotdeal_coolenjoy);
+
+app.get('/admin/cancel/:id',(req,res)=>{
+  const id=req.params.id;
+  switch (id){
+    case 0:
+      if(s_eleven.nextInvocation())
+        s_eleven.cancel();
+      break;
+    case 1:
+      if(s_tmon.nextInvocation())
+        s_tmon.cancel();
+      break;
+    case 2:
+      if(s_ppomppu.nextInvocation())
+        s_ppomppu.cancel();
+      break;
+    case 3:
+      if(s_coolenjoy.nextInvocation())
+        s_coolenjoy.cancel();
+      break;
+  }
+  res.redirect('/admin');
+});
+app.get('/admin/resume/:id',(req,res)=>{
+  const id=req.params.id;
+  switch (id){
+    case 0:
+      if(!s_eleven.nextInvocation())
+        s_eleven.reschedule();
+      break;
+    case 1:
+      if(!s_tmon.nextInvocation())
+        s_tmon.reschedule();
+      break;
+    case 2:
+      if(!s_ppomppu.nextInvocation())
+        s_ppomppu.reschedule();
+      break;
+    case 3:
+      if(!s_coolenjoy.nextInvocation())
+        s_coolenjoy.reschedule();
+      break;
+  }
+  res.redirect('/admin');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   const err = new Error('Not Found');
@@ -66,5 +122,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
