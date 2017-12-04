@@ -5,7 +5,7 @@ exports.event_list=(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
-    db.query('select Event_ID,Event_Title,Event_Date from event', (err, results) => {
+    db.query('select Event_ID,Event_Title,Event_Date,Event_Score from event', (err, results) => {
       if (err) console.log(err);
       res.render('admin/board/event', {event: results});
     })
@@ -181,6 +181,18 @@ exports.event_comment_delete=(req,res)=>{
       res.redirect('/admin/board/event/'+event_id)
     });
 };
+
+exports.grade_list=(req,res)=>{
+    if(req.user.User_isAdmin===0){
+        return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+    }else {
+        db.query('select A.user_Name, B.* from user as A, grade as B where A.User_ID=B.User_ID;', (err, results) => {
+            if (err) console.log(err);
+            res.render('admin/board/grade', {grade: results});
+        })
+    }
+};
+
 
 // exports.event_update=(req,res)=>{
 //   const event_id=req.params.id;

@@ -25,6 +25,7 @@ const contact = require('./routes/user/contact');
 const hotdeal = require('./routes/user/hotdeal');
 const event = require('./routes/user/event');
 const tracking =require('./routes/user/tracking');
+const report=require('./routes/user/report');
 
 const admin_account=require('./routes/admin/account_management');
 const admin_auth=require('./routes/admin/auth');
@@ -48,6 +49,7 @@ app.use('/contact',contact);
 app.use('/event',event);
 app.use('/hotdeal',hotdeal);
 app.use('/tracking',tracking);
+app.use('/report',report);
 
 const schedule=require('node-schedule');
 const eleven=require('./controller/crawling/event_eleven');

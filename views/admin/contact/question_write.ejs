@@ -120,7 +120,7 @@
                 <ul class="sidebar-menu" id="nav-accordion">
                     <h3 class="centered" style="color:bisque">Admin</h3>
                     <li class="mt">
-                        <a class="active" href="/admin" style="color:#20B38E">
+                        <a href="/admin" style="color:#20B38E">
                             <i class="fa fa-dashboard"></i>
                             <span>Main</span>
                         </a>
@@ -137,9 +137,14 @@
                             <span>이벤트 관리</span>
                         </a>
                     </li>
-
                     <li class="sub-menu">
-                        <a href="javascript:;" style="color:darkseagreen">
+                        <a href="/admin/board/grade" style="color:Brown">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>평점 관리</span>
+                    </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a class="active" href="javascript:;" style="color:darkseagreen">
                             <i class="fa fa-th"></i>
                             <span>문의 관리</span>
                         </a>
@@ -249,36 +254,6 @@
         </footer>
     </section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="/assets/js/jquery.js"></script>
-    <script src="/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="/assets/js/jquery.sparkline.js"></script>
-
-
-    <!--common script for all pages-->
-    <script src="/assets/js/common-scripts.js"></script>
-
-    <script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
-    <script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
-
-    <!--script for this page-->
-    <script src="/assets/js/sparkline-chart.js"></script>
-    <script src="/assets/js/zabuto_calendar.js"></script>
-    <!-- Bootstrap core JavaScript-->
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="/js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="/js/sb-admin-datatables.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#logout").on("click", function (e) {
@@ -288,43 +263,79 @@
                 }
             });
         });
-    </script>
 
-    <script type="application/javascript">
-        $(document).ready(function () {
-            $("#date-popover").popover({ html: true, trigger: "manual" });
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
+</script>
 
-            $("#my-calendar").zabuto_calendar({
-                action: function () {
-                    return myDateFunction(this.id, false);
-                },
-                action_nav: function () {
-                    return myNavFunction(this.id);
-                },
-                ajax: {
-                    url: "show_data.php?action=1",
-                    modal: true
-                },
-                legend: [
-                    { type: "text", label: "특별 이벤트", badge: "00" },
-                    { type: "block", label: "평범 이벤트", }
-                ]
-            });
-        });
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/assets/js/jquery.scrollTo.min.js"></script>
+<script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="/assets/js/jquery.sparkline.js"></script>
+<!--common script for all pages-->
+<script src="/assets/js/common-scripts.js"></script>
+<script type="text/javascript" src="/assets/js/gritter/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="/assets/js/gritter-conf.js"></script>
+<!--script for this page-->
+<script src="/assets/js/sparkline-chart.js"></script>
+<script src="/assets/js/zabuto_calendar.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Page level plugin JavaScript-->
+<script src="/vendor/datatables/jquery.dataTables.js"></script>
+<script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="/js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="/js/sb-admin-datatables.min.js"></script>
 
+<!--???-->
+<script type="application/javascript">
+$(document).ready(function () {
+$("#date-popover").popover({ html: true, trigger: "manual" });
+$("#date-popover").hide();
+$("#date-popover").click(function (e) {
+$(this).hide();
+});
 
-        function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-        }
-    </script>
+$("#my-calendar").zabuto_calendar({
+action: function () {
+return myDateFunction(this.id, false);
+},
+action_nav: function () {
+return myNavFunction(this.id);
+},
+ajax: {
+url: "show_data.php?action=1",
+modal: true
+},
+legend: [
+{ type: "text", label: "특별 이벤트", badge: "00" },
+{ type: "block", label: "평범 이벤트", }
+]
+});
+});
+function myNavFunction(id) {
+$("#date-popover").hide();
+var nav = $("#" + id).data("navigation");
+var to = $("#" + id).data("to");
+console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+}
 
+</script>
+<script>
+$(document).ready(function () {
+$("#logout").on("click", function (e) {
+//컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+e.preventDefault();
+}
+});
+});
+</script>
 
 </body>
 

@@ -134,7 +134,9 @@ exports.new_pw_page=(req,res)=> {
       console.log(err);
       res.render('main', {message: "유효하지 않은 토큰입니다."})
     } else {
-      res.render('new_pw', {token: token});
+      const user_email=req.user.User_Email;
+      const user_name=req.user.User_Name;
+      res.render('new_pw', {token: token,useremail:user_email,username:user_name});
     }
   });
 };

@@ -8,7 +8,7 @@ router.get('/list',passport.authenticate('jwt',{session:false}),controller.accou
 router.get('/comment/:id',passport.authenticate('jwt',{session:false}),controller.account_comment_list);
 router.get('/report/:id',passport.authenticate('jwt',{session:false}),controller.account_comment_list);
 router.post('/ban/:id',passport.authenticate('jwt',{session:false}),controller.account_ban);
-
+router.post('/unban/:id',passport.authenticate('jwt',{session:false}),controller.account_unban);
 //experiment
 // router.get('/account/update/email/:id',);
 

@@ -16,15 +16,14 @@
   <!-- Custom styles for this template-->
   <link href="/css/sb-admin.css" rel="stylesheet">
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Pacifico');
     body {
-      background-image: url(/images/index-bg.jpg);
+      background-image: url(/images/header-bg.jpg);
       background-size: 100% 100%;
     }
-
     .container {
-      margin-top: 30%;
+      margin-top: 12%;
     }
-
     .btn {
       width: 70%;
       margin-left:15%;
@@ -48,102 +47,20 @@
       background-color: #222222;
       color: white;
     }
-
-    .box {
-      width: 100px;
-      height: 100px;
-      padding: 0;
-      border: 0;
-      margin: 0;
-
-    }
-
-    #logo{
-      position: absolute;
-      height: 100%;
-      width:100%;
-      
-      background: url(/images/logo.png);
-      
-      margin-left: 30%;
-      top:0%;
-      background-repeat: no-repeat;
-      z-index: -99;
-    }
-    #move1{
-      left:10%; 
-      top:10%;
-      position: absolute;
-      background: url(/images/1.png);
-      background-repeat: no-repeat;
-    }
-    #move2{
-      left:50%; 
-      top:10%;
-      position: absolute;
-      background: url(/images/2.png);
-      background-repeat: no-repeat;
-    }
-    #move3{
-      left:90%; 
-      top:10%;
-      position: absolute;
-      background: url(/images/3.png);
-      background-repeat: no-repeat;
-    }
-    #move4{
-      left:10%; 
-      top:80%;
-      position: absolute;
-      background: url(/images/4.png);
-      background-repeat: no-repeat;
-    }
-    #move5{
-      left:50%; 
-      top:85%;
-      position: absolute;
-      background: url(/images/5.png);
-      background-repeat: no-repeat;
-    }
-    #move6{
-      left:90%; 
-      top:80%;
-      position: absolute;
-      background: url(/images/6.png);
-      background-repeat: no-repeat;
-    }
-
-    .slidein {
-      animation-duration: 2s;
-      animation-name: slidein;
-      animation-iteration-count: 5;
-      animation-direction:alternate;
-    }
-
-    @keyframes slidein {
-      from {
-        margin-right: 10%;
-        margin-top: 0%;
-      }
-      to {
-        left: 50%;
-        top: 50%;
-      }
+    p{
+        margin-top:5%;
+        color:white;
+        font-size:500%;
+        text-align:center;
+        font-family: 'Pacifico', cursive;
     }
   </style>
 
 </head>
 <div id="logo">&nbsp;</div>
 <body class="bg-dark">
-  
-    <div id="move1" class="slidein box">&nbsp;</div>
-    <!-- <div id="move2" class="slidein box">&nbsp</div> -->
-    <div id="move3" class="slidein box">&nbsp;</div>
-    <div id="move4" class="slidein box">&nbsp;</div>
-    <div id="move5" class="slidein box">&nbsp;</div>
-    <div id="move6" class="slidein box">&nbsp;</div>
-  <div class="container" style="height:100%; width:100%; margin-top:20%;">
-
+    <p>SHOW HOT</p>
+  <div class="container" style="height:100%; width:100%;">
     <div class="card card-login mx-auto mt-5">
       <div class="card-body">
         <form method="post" action="/login">

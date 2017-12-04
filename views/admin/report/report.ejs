@@ -127,7 +127,7 @@
                 <ul class="sidebar-menu" id="nav-accordion">
                     <h3 class="centered" style="color:bisque">Admin</h3>
                     <li class="mt">
-                        <a class="active" href="/admin" style="color:#20B38E">
+                        <a href="/admin" style="color:#20B38E">
                             <i class="fa fa-dashboard"></i>
                             <span>Main</span>
                         </a>
@@ -144,7 +144,12 @@
                             <span>이벤트 관리</span>
                         </a>
                     </li>
-    
+                    <li class="sub-menu">
+                        <a href="/admin/board/grade" style="color:Brown">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>평점 관리</span>
+                    </a>
+                    </li>
                     <li class="sub-menu">
                         <a href="javascript:;" style="color:darkseagreen">
                             <i class="fa fa-th"></i>
@@ -157,7 +162,7 @@
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;" style="color:yellowgreen">
+                        <a class="active" href="javascript:;" style="color:yellowgreen">
                             <i class="fa fa-tasks"></i>
                             <span>계정 관리</span>
                         </a>
@@ -199,7 +204,7 @@
                     <br>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="#">신고 처리</a>
+                            <i class="fa fa-tasks" style="color:darkkhaki;"></i><a href="#" style="color:darkkhaki;">신고 처리</a>
                         </li>
                     </ol>
                     <div class="card-body">
@@ -208,15 +213,31 @@
                                 <thead>
                                     <tr>
                                         <th>번호</th>
-                                        <th>제목</th>
+                                        <th>신고당한 사람</th>
                                         <th>내용</th>
-                                        <th>등록일</th>
+                                        <td>신고 등록일</td>
                                         <th>확인하기</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
-
+                                    <% report.forEach((item)=>{ %>
+                                        <tr>
+                                            <td>
+                                                <%= item.Report_ID %>
+                                            </td>
+                                            <td>
+                                                <%= item.User_Name %>
+                                            </td>
+                                            <td>
+                                                <%= item.Report_Content %>
+                                            </td>
+                                            <td>
+                                                <%= item.Report_Date %>
+                                            </td>
+                                            <td><form method="post" action="/admin/account/report/view/<%= item.Report_ID %>"><input type="submit" value="보기"></form></td>
+                                        </tr>
+                                        <%})%>
                                 </tbody>
                             </table>
                         </div>

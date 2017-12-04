@@ -12,9 +12,12 @@ router.get('/:id',passport.authenticate('jwt',{session:false}),controller.hotdea
 
 router.get('/up/:id',passport.authenticate('jwt',{session:false}),controller.hotdeal_up);
 router.get('/down/:id',passport.authenticate('jwt',{session:false}),controller.hotdeal_down);
-router.post('/grade',passport.authenticate('jwt',{session:false}),controller.hotdeal_grade);
+// router.post('/grade',passport.authenticate('jwt',{session:false}),controller.hotdeal_grade);
 
 router.post('/comment',passport.authenticate('jwt',{session:false}),controller.hotdeal_comment);
 router.post('/comment/delete/:id',passport.authenticate('jwt',{session:false}),controller.hotdeal_comment_delete);
+
+router.get('/:id/grade',passport.authenticate('jwt',{session:false}),controller.hotdeal_grade_form);
+router.post('/:id/grade',passport.authenticate('jwt',{session:false}),controller.hotdeal_grade);
 
 module.exports=router;

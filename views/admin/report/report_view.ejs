@@ -9,12 +9,11 @@
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
     <title>Show HOt -What you want</title>
-
+    <link href="/assets/css/style-responsive.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="/assets/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="/assets/lineicons/style.css">
     <!-- Bootstrap core CSS-->
@@ -23,32 +22,35 @@
     <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
     <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
-    <link href="/assets/css/style-responsive.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/assets/css/table-responsive">
     <script src="/assets/js/chart-master/Chart.js"></script>
-    <style>
-            .container-fluid ol {
-                font-size: 200%;
-            }
-    
-            .updown {
-                text-align: center;
-            }
-    
-            .updown p {
-                margin: 0;
-            }
-        </style>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .container-fluid ol {
+            font-size: 200%;
+        }
+
+        .updown {
+            text-align: center;
+        }
+
+        .updown p {
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
+
     <section id="container">
         <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
@@ -56,25 +58,61 @@
                 <!-- inbox dropdown start-->
                 <li id="header_inbox_bar" class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
-                    <i class="fa fa-envelope-o" style="font-size:40px"></i>
-                    <span class="badge bg-theme">n</span>
-                </a>
+                          <i class="fa fa-envelope-o" style="font-size:40px"></i>
+                          <span class="badge bg-theme">5</span>
+                      </a>
                     <ul class="dropdown-menu extended inbox">
                         <div class="notify-arrow notify-arrow-green"></div>
                         <li>
-                            <p class="green">n개의 알람이 있습니다</p>
+                            <p class="green">5개의 알람이 있습니다</p>
                         </li>
                         <li>
                             <a href="index.html#">
-                            <span class="photo"><img alt="avatar" src="assets/img/cap.PNG"></span>
-                            <span class="subject">
+                                  <span class="photo"><img alt="avatar" src="assets/img/cap.PNG"></span>
+                                  <span class="subject">
                                   <span class="from">정하린</span>
                                   <span class="time">방금</span>
                                   </span>
-                            <span class="message">
+                                  <span class="message">
                                      안녕
                                   </span>
-                        </a>
+                              </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                  <span class="photo"><img alt="avatar" src="assets/img/cap.PNG"></span>
+                                  <span class="subject">
+                                  <span class="from">정하린</span>
+                                  <span class="time">40 mins.</span>
+                                  </span>
+                                  <span class="message">
+                                   안녕
+                                  </span>
+                              </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                  <span class="photo"><img alt="avatar" src="assets/img/cap.PNG"></span>
+                                  <span class="subject">
+                                  <span class="from">정하린</span>
+                                  <span class="time">2 hrs.</span>
+                                  </span>
+                                  <span class="message">
+                                      안녕
+                                  </span>
+                              </a>
+                        </li>
+                        <li>
+                            <a href="index.html#">
+                                  <span class="photo"><img alt="avatar" src="assets/img/cap.PNG"></span>
+                                  <span class="subject">
+                                  <span class="from">DJ 정하린</span>
+                                  <span class="time">4 hrs.</span>
+                                  </span>
+                                  <span class="message">
+                                     안녕
+                                  </span>
+                              </a>
                         </li>
                         <li>
                             <a href="index.html#">모든 알람 보기</a>
@@ -86,6 +124,7 @@
             <!--  notification end -->
         </div>
 
+
         <div id="toggle-menu" class="sidebar-toggle-box">
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
@@ -96,21 +135,21 @@
                     <h3 class="centered" style="color:bisque">Admin</h3>
                     <li class="mt">
                         <a href="/admin" style="color:#20B38E">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Main</span>
-                    </a>
+                            <i class="fa fa-dashboard"></i>
+                            <span>Main</span>
+                        </a>
                     </li>
                     <li class="sub-menu">
-                        <a class="active" href="/admin/board/hotdeal" style="color:deeppink;">
-                        <i class="fa fa-desktop"></i>
-                        <span>핫딜 관리</span>
-                    </a>
+                        <a href="/admin/board/hotdeal" style="color:deeppink;">
+                            <i class="fa fa-desktop"></i>
+                            <span>핫딜 관리</span>
+                        </a>
                     </li>
                     <li class="sub-menu">
                         <a href="/admin/board/event" style="color:darkorange">
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>이벤트 관리</span>
-                    </a>
+                            <i class=" fa fa-bar-chart-o"></i>
+                            <span>이벤트 관리</span>
+                        </a>
                     </li>
                     <li class="sub-menu">
                         <a href="/admin/board/grade" style="color:Brown">
@@ -120,9 +159,9 @@
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;" style="color:darkseagreen">
-                        <i class="fa fa-th"></i>
-                        <span>문의 관리</span>
-                    </a>
+                            <i class="fa fa-th"></i>
+                            <span>문의 관리</span>
+                        </a>
                         <ul class="sub">
                             <li><a href="/admin/contact/notice" style="color:turquoise">공지사항</a></li>
                             <li><a href="/admin/contact/qna" style="color:aquamarine">Q&amp;A</a></li>
@@ -130,10 +169,10 @@
                         </ul>
                     </li>
                     <li class="sub-menu">
-                        <a href="javascript:;" style="color:yellowgreen">
-                        <i class="fa fa-tasks"></i>
-                        <span>계정 관리</span>
-                    </a>
+                        <a class="active" href="javascript:;" style="color:yellowgreen">
+                            <i class="fa fa-tasks"></i>
+                            <span>계정 관리</span>
+                        </a>
                         <ul class="sub">
                             <li><a href="/admin/account/list" style="color:tomato">유저 리스트</a></li>
                             <li><a href="/admin/account/report" style="color:darkkhaki">신고처리</a></li>
@@ -141,9 +180,9 @@
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
-                        <i class="fa fa-cogs"></i>
-                        <span>설정</span>
-                    </a>
+                            <i class="fa fa-cogs"></i>
+                            <span>설정</span>
+                        </a>
                         <ul class="sub">
                             <li><a href="/admin/new_pw">비밀번호 변경</a></li>
                             <li><a href="/admin/settings">기타 설정</a></li>
@@ -151,9 +190,9 @@
                     </li>
                     <li class="sub-menu">
                         <a href="/" id="logout" style="color:dodgerblue" id="logout">
-                        <i class="fa fa-sign-out"></i>
-                        <span>로그아웃</span>
-                    </a>
+                            <i class="fa fa-sign-out"></i>
+                            <span>로그아웃</span>
+                        </a>
                     </li>
                 </ul>
                 <!-- sidebar menu end-->
@@ -162,113 +201,53 @@
         <!--sidebar end-->
 
         <!-- **********************************************************************************************************************************************************
-  MAIN CONTENT
-  *********************************************************************************************************************************************************** -->
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                <div align='center'><a href="/admin" class="logo"><b>SHOW HOT _Admin</b></a></div>
-                <div class="container-fluid">
-                    <br>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <i class="fa fa-desktop" style="color:deeppink;"></i><a href="#" style="color:deeppink;">핫딜 관리</a>
-                        </li>
-                    </ol>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>추천 수</th>
-                                        <th>제목</th>
-                                        <th>링크</th>
-                                        <th>내용</th>
-                                        <th>등록일</th>
-                                        <th>삭제</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
-                                    <% hotdeal.forEach((item)=>{ %>
-                                        <tr>
-                                            <td class="updown">
-                                                <%= item.Hotdeal_Score %>
-                                            </td>
-                                            <td valgin='bottom' class='clickable-row' data-href="/admin/board/hotdeal/<%= item.Hotdeal_ID %>">
-                                                <%= item.Hotdeal_Title %>
-                                            </td>
-                                            <td>
-                                                <%= item.Hotdeal_Link %>
-                                            </td>
-                                            <td>
-                                                <%= item.Hotdeal_Content %>
-                                            </td>
-                                            <td>
-                                                <%= item.Hotdeal_Date %>
-                                            </td>
-                                            <td>
-                                                <form method="post" action="/admin/board/hotdeal/delete/<%= item.Hotdeal_ID %>"><input type="hidden" name="id" value="<%= item.Hotdeal_ID %>"><input type="submit"
-                                                        value="삭제"></form>
-                                            </td>
-                                        </tr>
-                                        <%})%>
-                                </tbody>
-                            </table>
+                <div align='center'>
+                    <a href="/admin" class="logo"><b>SHOW HOT_Admin</b></a>
+                </div>
+                <div class="container col-lg-12">
+                    <div class="row mt">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="form-panel form-horizontal style-form" style="background-color:lightgray">
+                                <div class="col-xs-4 col-sm-4 col-lg-12 col-md-4 badge" style="height:40px; width:200px; font-size:25px;">신고내용 확인</div>
+                                <div class="col-lg-2" style="font-size:20px; float:unset; margin-top:10px;">&nbsp</div>
+                                <form name=form1 method=POST>
+                                    <div class="col-lg-2 pull-left" style="font-size:25px;">신고대상:</div><span style="font-size:25px;"><%= report[0].User_Name%></span>
+                                    <br>
+                                    <br>
+                                    <div class="form-group ">
+                                        <div class="col-lg-12">
+                                            <textarea class="form-control" style="font-size:20px;" rows="15" name="report_Content">내용 : <%=report[0].Report_Content%></textarea>
+                                        </div>
+                                        <div class="col-sm-12 col-md-3 col-lg-3">
+                                        </div>
+                                        <!-- <input type="submit" class="btn btn-theme02 btn-lg pull-right btn-border" style="margin-right:50px;" value="작성"> -->
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
-                        <a href="/admin/board/hotdeal/insert" class="btn btn-board btn-theme03">핫딜 작성하기</a>
                     </div>
                 </div>
-                <!--/row -->
             </section>
         </section>
-
         <!--main content end-->
         <!--footer start-->
         <footer class="site-footer">
             <div class="text-center">
                 Copyright © Your Website 2017
-                <a href="/overview" class="go-top">
-                <i class="fa fa-angle-up"></i>
-            </a>
+                <a href="/main" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
             </div>
         </footer>
-        <!--footer end-->
     </section>
-    <script>
-        $(document).ready(function () {
-            $("#logout").on("click", function (e) {
-                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-                    e.preventDefault();
-                }
-            });
-        });
-
-    </script>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="/assets/js/jquery.js"></script>
-    <script src="/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="/assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="/assets/js/jquery.scrollTo.min.js"></script>
-    <script src="/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="/assets/js/jquery.sparkline.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#logout").on("click", function (e) {
-                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
-                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
-                    e.preventDefault();
-                }
-            });
-        });
-
-    </script>
-
-    <!--common script for all pages-->
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/jquery-3.2.1.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
@@ -298,8 +277,16 @@
     <script src="/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="/js/sb-admin-datatables.min.js"></script>
-
-
+    <script>
+        $(document).ready(function () {
+            $("#logout").on("click", function (e) {
+                //컨폼 창에서 "취소" 버튼을 클릭하면 하이퍼링크 기본 이벤트 실행을 중지
+                if (confirm("정말로 로그아웃 하시겠습니까?") == false) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 
     <script type="application/javascript">
         $(document).ready(function () {
@@ -326,11 +313,7 @@
                 ]
             });
         });
-        $(document).ready(function ($) {
-            $(".clickable-row").click(function () {
-                window.location = $(this).data("href");
-            });
-        });
+
 
         function myNavFunction(id) {
             $("#date-popover").hide();
@@ -338,7 +321,6 @@
             var to = $("#" + id).data("to");
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
-
     </script>
 
 
