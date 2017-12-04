@@ -59,7 +59,7 @@ exports.notice_comment_delete=(req,res)=>{
 
 
 exports.qna_list=(req,res)=>{
-  db.query('select Qna_ID,Qna_Title,Qna_Date,Qna_Content from qna',(err,results)=>{
+  db.query('select * from qna',(err,results)=>{
     res.render('user/contact/qna',{qna:results});
   })
 };

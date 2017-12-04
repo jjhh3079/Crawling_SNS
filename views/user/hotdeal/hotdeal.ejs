@@ -224,6 +224,8 @@
                                     <tr>
                                         <th>추천 수</th>
                                         <th>제목</th>
+                                        <th>링크</th>
+                                        <th>내용</th>
                                         <th>등록일</th>
                                     </tr>
                                 </thead>
@@ -240,8 +242,14 @@
                                                 <%= item.Hotdeal_Title %>
                                             </td>
                                             <td>
+                                                <%= item.Hotdeal_Link %>
+                                            </td>
+                                            <td>
+                                                <%= item.Hotdeal_Content %>
+                                            </td>
+                                            <td>
                                                 <%= item.Hotdeal_Date %>
-                                            </td>                                            
+                                            </td>                                           
                                         </tr>
                                         <%})%>
                                 </tbody>
