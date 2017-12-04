@@ -204,8 +204,8 @@
                                         <div class="col-lg-6 col-md-6" style="float:left"><%= event_comment[index].Comment_Content%></div>
                                         <div class="col-lg-2 col-md-2" style="float:left"><%= event_comment[index].Comment_Date%></div>
                                         <div class="col-lg-2 col-md-2" style="float:left">
-                                            <form class="comment_btn" method="post">
-                                                <input type="hidden" name="id" value=""><input type="submit" value="신고">
+                                            <form class="comment_btn" method="get" action="/report/<%=event_comment[index].Comment_ID%>">
+                                                <input type="submit" value="신고">
                                             </form>
                                             <% if(event_comment[index].User_Email == user_mail[0].User_Email) { %>
                                             <form class="comment_btn" method="post" action="/event/comment/delete/<%=event[0].Event_ID%>">

@@ -12,6 +12,7 @@ router.get('/:id',passport.authenticate('jwt',{session:false}),controller.event_
 router.get('/up/:id',passport.authenticate('jwt',{session:false}),controller.event_up);
 router.get('/down/:id',passport.authenticate('jwt',{session:false}),controller.event_down);
 
+router.get('/')
 router.get('/:id/grade',passport.authenticate('jwt',{session:false}),controller.event_grade_view);
 router.post('/grade/:id',passport.authenticate('jwt',{session:false}),controller.event_grade);
 

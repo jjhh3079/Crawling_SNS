@@ -206,9 +206,9 @@
                                         <div class="col-lg-6 col-md-6" style="float:left"><%= hotdeal_comment[index].Comment_Content%></div>
                                         <div class="col-lg-2 col-md-2" style="float:left"><%= hotdeal_comment[index].Comment_Date%></div>
                                         <div class="col-lg-2 col-md-2" style="float:left">
-                                            <form class="comment_btn" method="post">
-                                                <input type="hidden" name="id" value=""><input type="submit" value="신고">
-                                            </form>
+                                                <form class="comment_btn" method="get" action="/report/<%=hotdeal_comment[index].Comment_ID%>">
+                                                    <input type="submit" value="신고">
+                                                </form>
                                             <% if(hotdeal_comment[index].User_Email == user_mail[0].User_Email) { %>
                                             <form class="comment_btn" method="post" action="/hotdeal/comment/delete/<%=hotdeal[0].Hotdeal_ID%>">
                                                 <input type="hidden" name="comment_id" value="<%= hotdeal_comment[index].Comment_ID%>">
