@@ -68,11 +68,20 @@ exports.hotdeal_grade=(req,res)=>{
   const user_id=req.user.User_ID;
   const hotdeal = 1;
   const {grade_score,grade_content} = req.body;
-  db.query('insert into grade (User_ID,Board_Name,Board_ID,Grade_Score,Grade_Content) values(?,?,?,?,?)',
+  db.query('insert into grade (User_ID,Borad_Name,Board_ID,Grade_Score,Grade_Content) values(?,?,?,?,?)',
     [user_id,hotdeal,hotdeal_id,grade_score,grade_content],(err)=>{
       if(err) console.log(err);
-      res.render('user/hotdeal/hotdeal'+hotdeal_id);
+      res.redirect('/hotdeal/'+hotdeal_id);
     });
+};
+
+exports.hotdeal_grade_form=(req,res)=>{
+  const hotdeal_id = req.params.id;
+  const user_id=req.user.User_ID;
+  db.query('select * from hotdeal where Hotdeal_ID=?',[hotdeal_id],(err,results)=>{
+    if(err) console.log(err);
+      res.render('user/hotdeal/hotdeal_grade_form',{hotdeal:results});
+  })
 };
 
 // 댓글입력

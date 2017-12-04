@@ -225,7 +225,7 @@
                     <br>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="#">사용자 리스트</a>
+                            <i class="fa fa-tasks" style="color:tomato;"></i><a href="#" style="color:tomato;">유저 리스트</a>
                         </li>
                     </ol>
                     <div class="card-body">
@@ -243,10 +243,12 @@
                                 <tbody>
                                     <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
                                     <% account.forEach((item)=>{ %>
-                                        <% if (item.User_Blacklist == 0){ %>
-                                            <tr class='clickable-row' data-href="/noticeview">
+                                        <% if (item.User_Blacklist == 0 && item.User_isAdmin == 0){ %>
+                                            <tr class='clickable-row' data-href="/" style="background-color:#91e9ff96">
+                                        <% }else if(item.User_isAdmin == 1){%>
+                                            <tr class='clickable-row' data-href="/" style="background-color:#2c39e479">
                                         <% }else{%>
-                                            <tr class='clickable-row' data-href="/noticeview" style="background-color:#b18c83">
+                                            <tr class='clickable-row' data-href="/" style="background-color:#ff947c79">
                                         <% }%>
                                         <td>
                                            <%= item.User_ID %>
@@ -265,6 +267,10 @@
                                             <input type="hidden" name="id" value="<%= item.User_ID %>">
                                             <input type="submit" value="밴 추가">
                                             </form>
+                                        </td>
+                                        <% }else if(item.User_Blacklist == 0 && item.User_isAdmin==1){%>
+                                        <td> 
+                                            <div class="btn btn-theme01" style="font-size:12px;">관리자</div>
                                         </td>
                                         <% }else if(item.User_Blacklist == 1){%>
                                         <td> 
