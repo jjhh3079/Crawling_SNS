@@ -166,3 +166,12 @@ exports.new_pw=(req,res)=>{
     }
   })
 };
+
+exports.settings_view=(req,res)=>{
+  res.render('user/settings/settings')
+};
+
+exports.setting=(req,res)=>{
+    console.log(req.body);
+    res.redirect('/settings');
+};

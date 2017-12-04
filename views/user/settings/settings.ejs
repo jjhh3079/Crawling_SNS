@@ -27,7 +27,8 @@
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
     <link href="/assets/css/style-responsive.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="/assets/js/bootstrap-datepicker/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/js/bootstrap-daterangepicker/daterangepicker.css" />
     <script src="/assets/js/chart-master/Chart.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,6 +39,9 @@
     <style>
         .container-fluid ol{
             font-size:200%;
+        }
+        select,option,input,h3{
+            color:black;
         }
     </style>
   </head>
@@ -244,110 +248,56 @@
           		<div class="col-md-2 col-lg-3"></div><div class="col-md-8 col-lg-6">
           			<div class="white-panel">
 	                	<div class="panel-heading">
-                            <br><div class="pull-left"><h3><i class="fa fa-comment-o"></i><a href="#">핫딜 알람</a></h3></div>
-                            <div class="pull-right"><button class="btn btn-primary btn-xs fa fa-pencil"></button></div><br><hr>
-                            <div class="pull-left"><h3><i class="fa fa-comment-o"></i><a href="#">이벤트 알람</a></h3></div><div class="pull-right"><button class="btn btn-primary btn-xs fa fa-pencil"></button></div><br><hr>
-                            <div class="pull-left"><h3><i class="fa fa-comment-o"></i><a href="#">배송 알람</a></h3></div><div class="pull-right"><button class="btn btn-primary btn-xs fa fa-pencil"></button></div><br><hr>
+                           <form method="post">
+                            <br>
+                            <div class="pull-left">
+                            <h3>
+                            <i class="fa fa-comment-o">
+                            </i>11번가 알람</h3>
+                            
+                            </div>
+                            <div class="pull-right">
+                                    <select name="Alarm_Eleven">
+                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                    </select>
+                            </div><br><hr>
+                            <div class="pull-left"><h3><i class="fa fa-comment-o"></i>티몬 알람</h3></div>
+                            <div class="pull-right">
+                                    <select name="Alarm_Tmon">
+                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                    </select>
+                            </div><br><hr>
+                            <div class="pull-left"><h3><i class="fa fa-comment-o"></i>뽐뿌 알람</h3></div>
+                            <div class="pull-right">
+                                    <select name="Alarm_Ppomppu">
+                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                    </select>
+                            </div><br><hr>
+                            <div class="pull-left"><h3><i class="fa fa-comment-o"></i>뽐뿌 추천 알람</h3></div>
+                            <div class="pull-right">
+                                <input type="text" name="Alarm_Ppomppu_Recommend">
+                            </div><br><hr>
+                            <div class="pull-left"><h3><i class="fa fa-comment-o"></i>쿨엔조이 알람</h3></div>
+                            <div class="pull-right">
+                                    <select name="Alarm_Collenjoy">
+                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                    </select>
+                            </div><br><hr>
+                            <div class="pull-left"><h3><i class="fa fa-comment-o"></i>쿨엔조이 추천 알람</h3></div>
+                            <div class="pull-right">
+                                    <input type="text" name="Alarm_Coolenjoy_Recommend">
+                            </div><br><hr>
+                            <input type="submit" value="설정 변경">
+                            </form>
                         </div>
 					</div><!--/ White-panel -->
-          		</div><! --/col-md-12 -->
-              </div><! -- row -->
-          </section>               
-              <div class="row mt mb">
-                  <div class="col-md-12">
-                      <section class="task-panel tasks-widget">
-	                	<div class="panel-heading">
-	                        <div class="pull-left"><h3><i class="fa fa-toggle-on"></i> 사이트 목록 설정</h3></div>
-	                        <br>
-	                 	</div>
-                          <div class="panel-body">
-                              <div class="task-content col-lg-offset-2 col-lg-8">
-                                  <ul id="sortable" class="task-list">
-                                      <li class="list-primary">
-                                          <i class=" fa fa-ellipsis-v"></i>
-                                          <div class="task-checkbox">
-                                              
-                                          </div>
-                                          <div class="task-title">
-                                            <span class="task-title-sp">사진 위치</span>  
-                                            <span class="task-title-sp">#1</span>
-                                              
-                                              
-                                              <div class="pull-right hidden-phone">
-                                                <input type="checkbox" class="list-child" value=""  />
-                                              </div>
-                                          </div>
-                                      </li>
-
-                                      <li class="list-primary">
-                                        <i class=" fa fa-ellipsis-v"></i>
-                                        <div class="task-checkbox">
-                                            
-                                        </div>
-                                        <div class="task-title">
-                                                <span class="task-title-sp">사진 위치</span>  
-                                            <span class="task-title-sp">#2</span>
-                                            
-                                            
-                                            <div class="pull-right hidden-phone">
-                                              <input type="checkbox" class="list-child" value=""  />
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-primary">
-                                        <i class=" fa fa-ellipsis-v"></i>
-                                        <div class="task-checkbox">
-                                            
-                                        </div>
-                                        <div class="task-title">
-                                                <span class="task-title-sp">사진 위치</span>  
-                                            <span class="task-title-sp">#3</span>
-                                            
-                                            
-                                            <div class="pull-right hidden-phone">
-                                              <input type="checkbox" class="list-child" value=""  />
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-primary">
-                                        <i class=" fa fa-ellipsis-v"></i>
-                                        <div class="task-checkbox">
-                                            
-                                        </div>
-                                        <div class="task-title">
-                                                <span class="task-title-sp">사진 위치</span>  
-                                            <span class="task-title-sp">#4</span>
-                                            
-                                            
-                                            <div class="pull-right hidden-phone">
-                                              <input type="checkbox" class="list-child" value=""  />
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-primary">
-                                        <i class=" fa fa-ellipsis-v"></i>
-                                        <div class="task-checkbox">
-                                            
-                                        </div>
-                                        <div class="task-title">
-                                                <span class="task-title-sp">사진 위치</span>  
-                                            <span class="task-title-sp">#5</span>
-                                            <!-- <span class="badge bg-theme">Done</span> -->
-                                            
-                                            <div class="pull-right hidden-phone">
-                                              <input type="checkbox" class="list-child" value=""  />
-                                            </div>
-                                        </div>
-                                    </li>
-                                  </ul>
-                              </div>
-                              <div class=" add-task-row">
-                                  <a class="btn btn-success btn-sm pull-left" href="#">설정하기</a>
-                              </div>
-                          </div>
-                      </section>
-                  </div><!--/col-md-12 -->
+          		</div>
               </div>
+          </section> 
       </section>
       <!--main content end-->
       <!--footer start-->
@@ -368,7 +318,7 @@
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
+    <script src="assets/js/bootstrap-switch.js"></script>
 
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
@@ -389,6 +339,12 @@
     <script>
       jQuery(document).ready(function() {
           TaskList.initTaskWidget();
+          if ($('input[name=aaaa]').is(":checked")) {
+                $('input[name=bbbb]').val('1');
+            } else {
+                $('input[name=bbbb]').val('0');
+            }
+
       });
 
       $(function() {

@@ -223,10 +223,10 @@
                                     <!-- ***EJS코드는 이 부분에 값을 받아와서 tr태그와 th태그를 생성하는 식으로 작성하면될듯**** -->
                                     <% notice.forEach((item)=>{ %>
                                         <tr class='clickable-row' data-href="/contact/notice/<%=item.Notice_ID%>">
-                                            <td>
+                                            <td style="width:13%;">
                                                 <%= item.Notice_ID %>
                                             </td>
-                                            <td>
+                                            <td style="width:50%;">
                                                 <%= item.Notice_Title %>
                                             </td>
                                             <td>
