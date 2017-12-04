@@ -5,7 +5,7 @@ exports.account_list=(req,res)=>{
   if(req.user.User_isAdmin===0){
     return res.render('main',{message:"관리자만 접속할 수 있습니다."})
   }else {
-    db.query('select User_ID,User_Email,User_Name,User_Date,User_Blacklist from user', (err, results) => {
+    db.query('select User_ID,User_Email,User_Name,User_Date,User_Blacklist,User_isAdmin from user', (err, results) => {
       if (err) console.log(err);
       res.render('admin/report/user_list', {account: results});
     })
@@ -30,7 +30,19 @@ exports.account_ban=(req,res)=>{
   }else {
     db.query('update user set User_Blacklist=1 where User_ID=?', [user_id], (err, result) => {
       if (err) console.log(err);
-      res.redirect('admin/report/report');
+      res.redirect('/admin/account/list');
+    })
+  }
+};
+
+exports.account_unban=(req,res)=>{
+  const user_id=req.params.id;
+  if(req.user.User_isAdmin===0){
+    return res.render('main',{message:"관리자만 접속할 수 있습니다."})
+  }else {
+    db.query('update user set User_Blacklist=0 where User_ID=?', [user_id], (err, result) => {
+      if (err) console.log(err);
+      res.redirect('/admin/account/list');
     })
   }
 };
