@@ -70,8 +70,11 @@ exports.event_down=(req,res)=>{
 
 exports.event_grade_view=(req,res)=>{
   const event_id = req.params.id;
-  res.render('user/event/event_grade',{event_id:event_id});
-}
+  db.query('select * from event where Event_ID=?',[event_id],(err,results)=>{
+    if(err) console.log(err);
+  res.render('user/event/event_grade',{event:results});
+  })
+};
 
 exports.event_grade=(req,res)=>{
   const event_id = req.params.id;

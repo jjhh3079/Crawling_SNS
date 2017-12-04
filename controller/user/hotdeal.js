@@ -63,6 +63,7 @@ exports.hotdeal_down=(req,res)=>{
       }
     });
 };
+
 exports.hotdeal_grade=(req,res)=>{
   const hotdeal_id = req.params.id;
   const user_id=req.user.User_ID;
