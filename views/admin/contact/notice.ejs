@@ -192,7 +192,7 @@
                                     <a href="/admin/contact/notice/<%= item.Notice_ID %>"><%= item.Notice_Title %></a>
                                 </td>
                                 <td>
-                                    <%= item.Notice_Date %>
+                                    <%= new Date(item.Notice_Date).toLocaleString() %>
                                 </td>
                                 <td><form method="post" action="/admin/contact/notice/delete/<%= item.Notice_ID %>"><input type="hidden" name="id" value="<%= item.Notice_ID %>"><input type="submit" value="삭제"></form></td>
                             </tr>

@@ -57,11 +57,34 @@ const ppomppu=require('./controller/crawling/hotdeal_ppomppu');
 const coolenjoy=require('./controller/crawling/hotdeal_coolenjoy');
 const tmon=require('./controller/crawling/event_tmon');
 
-// const s_eleven=  schedule.scheduleJob('* */30 * * * *',eleven.crawling_event_eleven);
-// const s_tmon=  schedule.scheduleJob('* */30 * * * *',tmon.crawling_event_tmon);
-// const s_ppomppu=  schedule.scheduleJob('* */30 * * * *',ppomppu.crawling_hotdeal_ppomppu);
-// const s_coolenjoy=  schedule.scheduleJob('* */30 * * * *',coolenjoy.crawling_hotdeal_coolenjoy);
+let rule = new schedule.RecurrenceRule();
+rule.minute = 30;
+const s_eleven=  schedule.scheduleJob(rule,eleven.crawling_event_eleven);
+const s_tmon=  schedule.scheduleJob(rule,tmon.crawling_event_tmon);
+const s_ppomppu=  schedule.scheduleJob(rule,ppomppu.crawling_hotdeal_ppomppu);
+const s_coolenjoy=  schedule.scheduleJob(rule,coolenjoy.crawling_hotdeal_coolenjoy);
 
+app.post('/admin/reschedule',(req,res)=>{
+  let new_rule = new schedule.RecurrenceRule();
+  new_rule.minute=req.body.minute;
+  if(s_eleven.nextInvocation()){
+    s_eleven.cancel();
+    schedule.scheduleJob(new_rule,eleven.crawling_event_eleven);
+  }
+  if(s_tmon.nextInvocation()){
+    s_tmon.cancel();
+    schedule.scheduleJob(new_rule,tmon.crawling_event_tmon);
+  }
+  if(s_ppomppu.nextInvocation()){
+    s_ppomppu.cancel();
+    schedule.scheduleJob(new_rule,ppomppu.crawling_hotdeal_ppomppu);
+  }
+  if(s_coolenjoy.nextInvocation()){
+    s_coolenjoy.cancel();
+    schedule.scheduleJob(new_rule,coolenjoy.crawling_hotdeal_coolenjoy);
+  }
+  res.redirect('/admin');
+});
 app.get('/admin/cancel/:id',(req,res)=>{
   const id=req.params.id;
   switch (id){

@@ -2,11 +2,16 @@ const cwd = process.cwd();
 const db=require(cwd +'/config/db');
 
 exports.event_list=(req,res)=>{
-  db.query('select * from event',(err,results)=>{
-    if(err) console.log(err);
-    console.log(results);
+  let view=[];
+  if(req.user.View_Eleven===1){
+    view.push("11번가")
+  }
+  if(req.user.View_Tmon===1){
+    view.push("티몬")
+  }
+  db.query('select * from event where Event_Category IN (?)',[view],(err,results)=>{
     res.render('user/event/event',{event:results});
-  })
+  });
 };
 
 exports.event_view=(req,res)=>{

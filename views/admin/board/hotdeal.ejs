@@ -182,8 +182,6 @@
                                     <tr>
                                         <th>추천 수</th>
                                         <th>제목</th>
-                                        <th>링크</th>
-                                        <th>내용</th>
                                         <th>등록일</th>
                                         <th>삭제</th>
                                     </tr>
@@ -196,16 +194,10 @@
                                                 <%= item.Hotdeal_Score %>
                                             </td>
                                             <td valgin='bottom' class='clickable-row' data-href="/admin/board/hotdeal/<%= item.Hotdeal_ID %>">
-                                                <%= item.Hotdeal_Title %>
+                                                <a href="/admin/board/hotdeal/<%= item.Hotdeal_ID %>"><%= item.Hotdeal_Title %></a>
                                             </td>
                                             <td>
-                                                <%= item.Hotdeal_Link %>
-                                            </td>
-                                            <td>
-                                                <%= item.Hotdeal_Content %>
-                                            </td>
-                                            <td>
-                                                <%= item.Hotdeal_Date %>
+                                                <%= new Date(item.Hotdeal_Date).toLocaleString() %>
                                             </td>
                                             <td>
                                                 <form method="post" action="/admin/board/hotdeal/delete/<%= item.Hotdeal_ID %>"><input type="hidden" name="id" value="<%= item.Hotdeal_ID %>"><input type="submit"

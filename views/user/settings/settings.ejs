@@ -213,28 +213,63 @@
       <section id="main-content">
           <section align=center class="wrapper">
             <div align='center'><a href="/main" class="logo"><b>SHOW HOT</b></a></div>
-          	<br><br><h3><i class="fa fa-gear"></i><i class="fa fa-angle-right"></i>핫딜 사이트 설정</h3>
+          	<br><br><h3><i class="fa fa-gear"></i><i class="fa fa-angle-right"></i>이벤트 사이트 설정</h3>
           	
           	<!-- SIMPLE TO DO LIST -->
           	<div class="row mt">
           		<div class="col-md-2 col-lg-3"></div><div class="col-md-8 col-lg-6">
           			<div class="white-panel">
 	                	<div class="panel-heading">
-                            <br><div class="pull-left"><h3><i class="fa fa-tasks"></i><a href="#">사이트 목록 설정</a> </h3></div><br><hr>
-                            <div class="pull-left"><h3><i class="fa fa-thumbs-o-up"></i><i class="fa fa-thumbs-down"></i><a href="#">추천 개수 범위 설정</a> </h3></div><br><hr>
+                            <br><div class="pull-left"><h3><i class="fa fa-tasks"></i>사이트 목록 설정</h3></div><br><hr>
+                            <form method="post" action="/setting/event">
+                                <br>
+                                <div class="pull-left"><h3><i class="fa fa-comment-o"></i>11번가</h3></div>
+                                <div class="pull-right">
+                                        <select name="View_Eleven">
+                                            <option <% if(setting[0].View_Eleven===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                            <option <% if(setting[0].View_Eleven===0) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                        </select>
+                                </div><br><hr>
+                                <div class="pull-left"><h3><i class="fa fa-comment-o"></i>티몬</h3></div>
+                                <div class="pull-right">
+                                        <select name="View_Tmon">
+                                            <option <% if(setting[0].View_Tmon===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                            <option <% if(setting[0].View_Tmon===0) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                        </select>
+                                </div><br><hr>
+                                <input type="submit" value="설정 변경">
+                            </form>
                         </div>
 					</div><!--/ White-panel -->
-          		</div><! --/col-md-12 -->
-          	</div><! -- row -->
+          		</div>
+          	</div>
 			<br>
-          	<h3><i class="fa fa-gear"></i><i class="fa fa-angle-right"></i>이벤트 사이트 설정</h3>
-          	
+          	<h3><i class="fa fa-gear"></i><i class="fa fa-angle-right"></i>핫딜 사이트 설정</h3>
           	<!-- SIMPLE TO DO LIST -->
           	<div class="row mt">
           		<div class="col-md-2 col-lg-3"></div><div class="col-md-8 col-lg-6">
           			<div class="white-panel">
 	                	<div class="panel-heading">
-                            <br><div class="pull-left"><h3><i class="fa fa-tasks"></i><a href="#">사이트 목록 설정</a> </h3></div><br><hr>
+                            <br><div class="pull-left"><h3><i class="fa fa-tasks"></i>사이트 목록 설정</h3></div><br><hr>
+                            <form method="post" action="/setting/hotdeal">
+                                <br>
+                                <% console.log("세팅",setting); %>
+                                <div class="pull-left"><h3><i class="fa fa-comment-o"></i>뽐뿌</h3></div>
+                                <div class="pull-right">
+                                        <select name="View_Ppomppu">
+                                            <option <% if(setting[0].View_Ppomppu===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                            <option <% if(setting[0].View_Ppomppu===0) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                        </select>
+                                </div><br><hr>
+                                <div class="pull-left"><h3><i class="fa fa-comment-o"></i>쿨엔조이</h3></div>
+                                <div class="pull-right">
+                                        <select name="View_Coolenjoy">
+                                            <option <% if(setting[0].View_Coolenjoy===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                            <option <% if(setting[0].View_Coolenjoy===0) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                        </select>
+                                </div><br><hr>
+                                <input type="submit" value="설정 변경">
+                            </form>
                         </div>
 					</div><!--/ White-panel -->
           		</div><! --/col-md-12 -->
@@ -248,48 +283,47 @@
           		<div class="col-md-2 col-lg-3"></div><div class="col-md-8 col-lg-6">
           			<div class="white-panel">
 	                	<div class="panel-heading">
-                           <form method="post">
+                           <form method="post" action="/setting/alarm">
                             <br>
                             <div class="pull-left">
                             <h3>
                             <i class="fa fa-comment-o">
                             </i>11번가 알람</h3>
-                            
                             </div>
                             <div class="pull-right">
                                     <select name="Alarm_Eleven">
-                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
-                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                        <option <% if(setting[0].Alarm_Eleven===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(setting[0].Alarm_Eleven===0) {%> selected="selected" <%}%> value="0">설정안함</option>
                                     </select>
                             </div><br><hr>
                             <div class="pull-left"><h3><i class="fa fa-comment-o"></i>티몬 알람</h3></div>
                             <div class="pull-right">
                                     <select name="Alarm_Tmon">
-                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
-                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                        <option <% if(setting[0].Alarm_Tmon===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(setting[0].Alarm_Tmon===0) {%> selected="selected" <%}%> value="0">설정안함</option>
                                     </select>
                             </div><br><hr>
                             <div class="pull-left"><h3><i class="fa fa-comment-o"></i>뽐뿌 알람</h3></div>
                             <div class="pull-right">
                                     <select name="Alarm_Ppomppu">
-                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
-                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                        <option <% if(setting[0].Alarm_Ppomppu===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(setting[0].Alarm_Ppomppu===0) {%> selected="selected" <%}%> value="0">설정안함</option>
                                     </select>
                             </div><br><hr>
                             <div class="pull-left"><h3><i class="fa fa-comment-o"></i>뽐뿌 추천 알람</h3></div>
                             <div class="pull-right">
-                                <input type="text" name="Alarm_Ppomppu_Recommend">
+                                <input type="text" name="Alarm_Ppomppu_Recommend" value="<%=setting[0].Alarm_Ppomppu_Recommend%>">
                             </div><br><hr>
                             <div class="pull-left"><h3><i class="fa fa-comment-o"></i>쿨엔조이 알람</h3></div>
                             <div class="pull-right">
-                                    <select name="Alarm_Collenjoy">
-                                        <option <% if(true) {%> selected="selected" <%}%> value="1">설정함</option>
-                                        <option <% if(true) {%> selected="selected" <%}%> value="0">설정안함</option>
+                                    <select name="Alarm_Coolenjoy">
+                                        <option <% if(setting[0].Alarm_Coolenjoy===1) {%> selected="selected" <%}%> value="1">설정함</option>
+                                        <option <% if(setting[0].Alarm_Coolenjoy===0) {%> selected="selected" <%}%> value="0">설정안함</option>
                                     </select>
                             </div><br><hr>
                             <div class="pull-left"><h3><i class="fa fa-comment-o"></i>쿨엔조이 추천 알람</h3></div>
                             <div class="pull-right">
-                                    <input type="text" name="Alarm_Coolenjoy_Recommend">
+                                    <input type="text" name="Alarm_Coolenjoy_Recommend" value="<%=setting[0].Alarm_Coolenjoy_Recommend%>">
                             </div><br><hr>
                             <input type="submit" value="설정 변경">
                             </form>

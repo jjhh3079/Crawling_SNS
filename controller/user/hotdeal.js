@@ -2,9 +2,15 @@ const cwd = process.cwd();
 const db=require(cwd +'/config/db');
 
 exports.hotdeal_list=(req,res)=>{
-  db.query('select * from hotdeal',(err,results)=>{
+  let view=[];
+  if(req.user.View_Ppomppu===1){
+    view.push("뽐뿌")
+  }
+  if(req.user.View_Coolenjoy===1){
+    view.push("쿨엔조이")
+  }
+  db.query('select * from hotdeal where Hotdeal_Category IN (?)',[view],(err,results)=>{
     if(err) console.log(err);
-    console.log(results);
     res.render('user/hotdeal/hotdeal',{hotdeal:results});
   })
 };

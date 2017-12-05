@@ -17,4 +17,4 @@ exports.report_view=(req,res)=>{
     if(err) console.log(err);
     res.render('admin/report/report_view',{report:results});
   })
-}
+};

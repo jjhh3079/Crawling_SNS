@@ -152,10 +152,9 @@ exports.hotdeal_comment=(req,res)=>{
 exports.hotdeal_comment_delete=(req,res)=>{
   const hotdeal_id = req.params.id;
   const comment_id = req.body.comment_id;
-  const user_id=req.user.User_ID;
   console.log(comment_id);
-  db.query('delete from comment where User_ID=? and Comment_ID=?',
-    [user_id,comment_id],(err)=>{
+  db.query('delete from comment where Comment_ID=?',
+    [comment_id],(err)=>{
       if(err) console.log(err);
       res.redirect('/admin/board/hotdeal/'+hotdeal_id)
     });
@@ -164,6 +163,7 @@ exports.event_comment=(req,res)=>{
   const event_id =req.body.event_id;
   const comment = req.body.comment;
   const event =0;
+  c
   db.query('insert into comment (User_ID,Board_Name,Board_ID,Comment_Content) values (?,?,?,?)',
     [req.user.User_ID,event,event_id,comment],(err)=>{
       if(err) console.log(err);
@@ -173,10 +173,9 @@ exports.event_comment=(req,res)=>{
 exports.event_comment_delete=(req,res)=>{
   const event_id = req.params.id;
   const comment_id = req.body.comment_id;
-  const user_id=req.user.User_ID;
   console.log(comment_id);
-  db.query('delete from comment where User_ID=? and Comment_ID=?',
-    [user_id,comment_id],(err)=>{
+  db.query('delete from comment where Comment_ID=?',
+    [comment_id],(err)=>{
       if(err) console.log(err);
       res.redirect('/admin/board/event/'+event_id)
     });

@@ -5,7 +5,7 @@ const request = require('request');
 
 exports.tracking=()=>{
   const url = (company,tracking_number)=>{
-    return "http://info.sweettracker.co.kr/apidoc/api/v1/trackingInfo?t_key="+config.api_key+"&t_code="+company+"&t_invoice="+tracking_number;
+    return "http://info.sweettracker.co.kr/api/v1/trackingInfo?t_key="+config.api_key+"&t_code="+company+"&t_invoice="+tracking_number;
   };
   db.query('select * from tracking',(err,results)=>{
     if(err) console.log(err);
@@ -15,11 +15,16 @@ exports.tracking=()=>{
       let number = results[i].Tracking_Number;
       let id = results[i].Tracking_ID;
       request(url(company,number),{json:true},(err,response,body)=>{
-        if(err) console.log(err);
-        let status=body.lastStateDetail.kind;
-        db.query('update tracking set Tracking_Status=? where Tracking_ID=?',[status,id],(err)=>{
-          if(err) console.log(err);
-        })
+        if(err){
+          console.log(err);
+        }else{
+          let date = body.lastStateDetail.timeString;
+          let status=body.lastStateDetail.kind;
+          db.query('update tracking set Tracking_Date=? and Tracking_Status=? where Tracking_ID=?',[date,status,id],(err)=>{
+            if(err) console.log(err);
+          })
+        }
+
       })
     }
   });

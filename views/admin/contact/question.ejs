@@ -234,7 +234,7 @@
                                                 <%= item.User_ID %>
                                             </td>
                                             <td>
-                                                <%= item.Question_Date %>
+                                                <%= new Date(item.Question_Date).toLocaleString() %>
                                             </td>
                                             <td><form method="get" action="/admin/contact/question/form/<%= item.Question_ID %>"><button>답변하기</button></form></td>
                                         </tr>

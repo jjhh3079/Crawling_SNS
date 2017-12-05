@@ -264,7 +264,7 @@
                                         <td>
                                             <%= item.User_Name %>
                                         </td>
-                                        <td><%= item.User_Date %>
+                                        <td><%= new Date(item.User_Date).toLocaleString() %>
                                         </td>
                                         <% if (item.User_Blacklist == 0 && item.User_isAdmin == 0){ %>
                                         <td>

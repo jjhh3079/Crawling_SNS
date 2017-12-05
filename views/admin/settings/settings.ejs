@@ -226,13 +226,12 @@
                     <div class="col-md-8 col-lg-6">
                         <div class="white-panel">
                             <div class="panel-heading">
-                                <form methd='post' action="">
+                                <form method='post' action="/admin/reschedule">
                                     <br>
                                     <div class="pull-left">
                                         <h3><i class="fa fa-tasks"></i><a href="#">주기 설정하기</a></h3>
-
                                     </div>
-                                    <input type="text" name=""><button type="submit" class="pull-right btn btn-theme02">설정하기</button><br>
+                                    <input type="number" name="minute"><button type="submit" class="pull-right btn btn-theme02">설정하기</button><br>
                                     <hr>
                                 </form>
                             </div>
@@ -283,7 +282,7 @@
                 <div class="row mt">
                     <div class="col-md-2 col-lg-3"></div>
                     <div class="col-md-8 col-lg-6">
-                       <form method='post' action="">
+
                         <div class="white-panel">
                             <div class="panel-heading">
                                 <br>
@@ -291,39 +290,37 @@
                                     <h2>11번가</h2>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
-                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
+                                    <a href="/admin/resume/0" class="btn btn-theme03">활성</a>
+                                    <a href="/admin/cancel/0" class="btn btn-theme03">비활성</a>
                                 </div><br>
                                 <hr>
                                 <div class="pull-left">
                                     <h2>티몬</h2>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
-                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
+                                    <a href="/admin/resume/1" class="btn btn-theme03">활성</a>
+                                    <a href="/admin/cancel/1" class="btn btn-theme03">비활성</a>
                                 </div><br>
                                 <hr>
                                 <div class="pull-left">
                                     <h2>뽐뿌</h2>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
-                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
+                                    <a href="/admin/resume/2" class="btn btn-theme03">활성</a>
+                                    <a href="/admin/cancel/2" class="btn btn-theme03">비활성</a>
                                 </div><br>
                                 <hr>
                                 <div class="pull-left">
                                     <h2>쿨엔조이</h2>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-theme03" name="">활성</button>
-                                    <button type="submit" class="btn btn-theme03" name="">비활성</button>
+                                    <a href="/admin/resume/3" class="btn btn-theme03">활성</a>
+                                    <a href="/admin/cancel/3" class="btn btn-theme03">비활성</a>
                                 </div><br>
-                                <hr>
-                                <buttom class="col-lg-2-offset-5 btn btn-theme04">적용</buttom>
                             </div>
                         </div>
                         <!--/ White-panel -->
-                        </form>
+
                     </div>
                     <! --/col-md-12 -->
                 </div>

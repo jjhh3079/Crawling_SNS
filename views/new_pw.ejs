@@ -222,25 +222,8 @@
                         <div class="card-header" align=center>비밀번호 변경 </div>
                         <div class="card-body">
 
-                            <form method="post">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">E-mail : </label>
-                                    <label for="exampleInputEmail1"><%=useremail%></label>
-                                    <br/><br/>
-                                    <label for="exampleInputEmail1">이름 : </label>
-                                    <label for="exampleInputEmail1"><%=username%></label>
-                                    <br/>
-                                </div>
-                                <hr>
-                                <div class="form-group">
-                                    <div class="form-row">
-                                        <div class="col-md-6">
-                                            <label for="exampleInputPassword1">이전 비밀번호 확인</label>
-                                            <input class="form-control" name="old_pw" type="password" placeholder="비밀번호">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
+                            <form method="post" action="/new_pw">
+                                <input name="token" type="hidden" value="<%=token%>">
                                 <div class="form-group">
                                     <div class="form-row">
                                         <div class="col-md-6">

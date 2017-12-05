@@ -212,7 +212,7 @@
                                     <%}%>
                                 </td>
                                 <td>
-                                    <%= item.Grade_Date %>
+                                    <%=new Date(item.Grade_Date).toLocaleString() %>
                                 </td>
                             </tr>
                             <%})%>

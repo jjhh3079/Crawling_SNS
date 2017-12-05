@@ -17,7 +17,7 @@ opts.secretOrKey =config.secret;
 
 passport.use('jwt', new JwtStrategy(opts,(jwt_payload,done)=>{
   let user =null;
-  db.query('select User_ID,authID,User_Email,User_Name,User_Date from user where authID=?',[jwt_payload.authID],(err,results)=>{
+  db.query('select * from user where authID=?',[jwt_payload.authID],(err,results)=>{
     if(err) console.log(err);
     user = results[0];
     if(user) done(null, user);

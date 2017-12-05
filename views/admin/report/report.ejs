@@ -233,7 +233,7 @@
                                                 <%= item.Report_Content %>
                                             </td>
                                             <td>
-                                                <%= item.Report_Date %>
+                                                <%= new Date(item.Report_Date).to %>
                                             </td>
                                             <td><form method="post" action="/admin/account/report/view/<%= item.Report_ID %>"><input type="submit" value="보기"></form></td>
                                         </tr>

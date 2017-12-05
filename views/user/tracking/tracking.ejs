@@ -276,21 +276,27 @@
                                         <tr>
                                             <th>운송장 번호</th>
                                             <th>택배사</th>
+                                            <th>마지막 날짜</th>
                                             <th>상태</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <%tracking.forEach((item)=>{%>
                                             <tr>
                                                 <td>
-                                                    a
+                                                    <%=item.Tracking_Number%>
                                                 </td>
                                                 <td>
-                                                    d
+                                                    <%=item.Tracking_Company%>
                                                 </td>
                                                 <td>
-                                                    a
+                                                    <%=new Date(item.Tracking_Date).toLocaleString()%>
+                                                </td>
+                                                <td>
+                                                    <%=item.Tracking_Status%>
                                                 </td>
                                             </tr>
+                                    <%})%>
                                     </tbody>
                                 </table>
                             </div>

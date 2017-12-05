@@ -242,13 +242,13 @@
                                     <%= item.Event_Category%>
                                 </td>
                                 <td class='clickable-row' data-href="/event/<%= item.Event_ID %>" valgin='bottom'>
-                                    <%= item.Event_Title %>
+                                    <a href="/event/<%= item.Event_ID %>"><%= item.Event_Title %></a>
                                 </td>
                                 <td>
                                     <img src="<%= item.Event_Content %>">
                                 </td>
                                 <td>
-                                    <%= item.Event_Date %>
+                                    <%= new Date(item.Event_Date).toLocaleString() %>
                                 </td>
                             </tr>
                             <%})%>

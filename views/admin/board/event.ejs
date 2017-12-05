@@ -235,10 +235,10 @@
                                     <%= item.Event_Score %>
                                 </td>
                                 <td valgin='bottom' class='clickable-row' data-href="/admin/board/event/<%= item.Event_ID %>">
-                                    <%= item.Event_Title %>
+                                    <a href="/admin/board/event/<%= item.Event_ID %>"><%= item.Event_Title %></a>
                                 </td>
                                 <td>
-                                    <%= item.Event_Date %>
+                                    <%= new Date(item.Event_Date).toLocaleString() %>
                                 </td>
                                 <td>
                                     <form method="post" action="/admin/board/event/delete/<%= item.Event_ID %>"><input type="hidden" name="id" value="<%= item.Event_ID %>"><input type="submit" value="삭제"></form>

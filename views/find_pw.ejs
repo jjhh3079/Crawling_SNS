@@ -31,13 +31,13 @@
           <h4>비밀번호를 잊으셨나요?</h4>
           <p>회원가입시 등록한 이메일을 입력하세요.</p>
         </div>
-        <form method="post">
+        <form method="post" action="/find_pw">
           <div class="form-group">
             <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" name="userMail" placeholder="이메일">
           </div>
           <!--<div class="login-fail">가입되어있지 않은 이메일입니다.</div>-->
           <br/>
-          <a class="btn btn-primary btn-block" href="/">비밀번호 재발급</a>
+          <input type="submit" class="btn btn-primary btn-block" >비밀번호 재발급</input>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="/signin">회원가입 하러가기</a>

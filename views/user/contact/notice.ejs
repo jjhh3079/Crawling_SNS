@@ -230,7 +230,7 @@
                                                 <%= item.Notice_Title %>
                                             </td>
                                             <td>
-                                                <%= item.Notice_Date %>
+                                                <%= new Date(item.Notice_Date).toLocaleString() %>
                                             </td>
                                         </tr>
                                         <%})%>
